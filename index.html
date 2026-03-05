@@ -1,335 +1,80 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Norte Digital | Modern Vintage Design Agency</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&amp;family=Open+Sans:wght@400;600&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#d3785a", // Terracotta
-                        "slate-custom": "#3C4F5A", // Slate Gray for shadows
-                        "petrol": "#2A6369", // Petrol Blue
-                        "background-light": "#FFF8ED", // Off-White
-                        "background-dark": "#1f1613",
-                    },
-                    fontFamily: {
-                        "display": ["Montserrat", "sans-serif"],
-                        "body": ["Open Sans", "sans-serif"],
-                        "technical": ["Space Grotesk", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        body {
-            background-color: #FFF8ED;
-            background-image: radial-gradient(#3C4F5A 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            background-attachment: fixed;
-            font-family: 'Open Sans', sans-serif;
-        }
-        .retro-shadow {
-            box-shadow: 4px 4px 0px 0px #3C4F5A;
-            transition: all 0.1s ease;
-        }
-        .retro-shadow:active {
-            box-shadow: 0px 0px 0px 0px #3C4F5A !important;
-            transform: translate(2px, 2px) !important;
-        }
-        .window-frame {
-            border: 2px solid #3C4F5A;
-            box-shadow: 6px 6px 0px 0px #3C4F5A;
-        }
-        .flow-line {
-            background-image: linear-gradient(to bottom, #2A6369 50%, transparent 50%);
-            background-size: 1px 8px;
-            width: 2px;
-        }
-    </style>
-<style>
-    .flow-step-container {
-        transition: all 0.3s ease;
-    }
-    .flow-step-icon {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .flow-step-container:hover .flow-step-icon {
-        transform: scale(1.1);
-        background-color: #d3785a !important;
-        color: white !important;
-        border-color: #3C4F5A !important;
-        box-shadow: 4px 4px 0px 0px #3C4F5A;
-    }
-    .flow-step-container:hover h3 {
-        color: #3C4F5A !important;
-    }
-    .flow-step-container:hover p {
-        color: #3C4F5A !important;
-        opacity: 1;
-    }
+<html lang="pt-BR" class="selection:bg-primary selection:text-white">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Norte Digital | Modern Vintage Design Agency</title>
     
-    @keyframes marching-ants-horizontal {
-        0% { background-position: 0 0; }
-        100% { background-position: 24px 0; }
-    }
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background-light text-slate-900">
 
-    .desktop-connector {
-        background-image: linear-gradient(90deg, #d3785a 50%, transparent 50%);
-        background-size: 12px 2px;
-        transition: all 0.3s ease;
-    }
-
-    .flow-step-container:hover + .desktop-connector,
-    .desktop-connector:has(+ .flow-step-container:hover) {
-        background-image: linear-gradient(90deg, #d3785a 50%, transparent 50%);
-        animation: marching-ants-horizontal 0.3s linear infinite;
-        opacity: 1;
-    }
-    </style></head>
-<body class="bg-background-light text-slate-900 selection:bg-primary selection:text-white">
-<!-- Navigation -->
-<nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4">
-<div class="max-w-7xl mx-auto flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm window-frame">
-<span class="material-symbols-outlined text-lg">navigation</span>
-</div>
-<h1 class="font-display font-black text-xl tracking-tighter text-slate-custom">NORTE DIGITAL</h1>
-</div>
-<div class="hidden md:flex items-center gap-10 font-technical text-sm font-bold uppercase tracking-widest text-slate-custom/70">
-<a class="hover:text-primary transition-colors" href="#">Sistemas</a>
-<a class="hover:text-primary transition-colors" href="#">Design</a>
-<a class="hover:text-primary transition-colors" href="#">Manual</a>
-<a class="hover:text-primary transition-colors" href="#">Contato</a>
-</div>
-<button class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm window-frame">
+                    <span class="material-symbols-outlined text-lg">navigation</span>
+                </div>
+                <h1 class="font-display font-black text-xl tracking-tighter text-slate-custom">NORTE DIGITAL</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-10 font-technical text-sm font-bold uppercase tracking-widest text-slate-custom/70">
+                <a class="hover:text-primary transition-colors" href="#">Sistemas</a>
+                <a class="hover:text-primary transition-colors" href="#">Design</a>
+                <a class="hover:text-primary transition-colors" href="#">Manual</a>
+                <a class="hover:text-primary transition-colors" href="#">Contato</a>
+            </div>
+            <button class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
                 Iniciar Missão
             </button>
-</div>
-</nav>
-<main class="max-w-7xl mx-auto px-6">
-<!-- Hero Section -->
-<section class="relative pt-20 pb-32 overflow-hidden">
-<div class="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/4">
-<span class="material-symbols-outlined text-[400px]">compass_calibration</span>
-</div>
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-<div class="space-y-8 relative z-10">
-<div class="inline-flex items-center gap-2 px-3 py-1 border border-slate-custom/20 rounded-sm bg-white/50 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-slate-custom">
-<span class="size-2 bg-primary rounded-full animate-pulse"></span> 
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6">
+        <section class="relative pt-20 pb-32 overflow-hidden">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 border border-slate-custom/20 rounded-sm bg-white/50 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-slate-custom">
+                        <span class="size-2 bg-primary rounded-full animate-pulse"></span> 
                         Referência: NASA-1972-MODULUS
                     </div>
-<h1 class="font-display font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter text-slate-custom">
+                    <h1 class="font-display font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter text-slate-custom">
                         SEU SUCESSO <br/>COMEÇA AQUI.
                     </h1>
-<p class="text-lg text-slate-custom/80 max-w-md border-l-2 border-primary pl-6">
+                    <p class="text-lg text-slate-custom/80 max-w-md border-l-2 border-primary pl-6">
                         Agência de design e tecnologia com estética retro-futurista e a precisão técnica dos manuais de engenharia aeroespacial.
                     </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<button class="bg-primary text-white font-display font-bold uppercase text-sm tracking-widest px-8 py-4 border-2 border-slate-custom retro-shadow">
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button class="bg-primary text-white font-display font-bold uppercase text-sm tracking-widest px-8 py-4 border-2 border-slate-custom retro-shadow">
                             Briefing de Projeto
                         </button>
-<button class="bg-transparent text-slate-custom font-display font-bold uppercase text-sm tracking-widest px-8 py-4 border-2 border-slate-custom hover:bg-slate-custom hover:text-white transition-all">
-                            Ver Portfólio
-                        </button>
-</div>
-</div>
-<!-- Visual Center: OS Window Frame -->
-<div class="relative">
-<div class="window-frame bg-white rounded-sm overflow-hidden aspect-square flex flex-col">
-<div class="bg-slate-custom px-4 py-2 flex items-center justify-between border-b-2 border-slate-custom">
-<div class="flex gap-2">
-<div class="size-3 rounded-full border border-white/30"></div>
-<div class="size-3 rounded-full border border-white/30"></div>
-</div>
-<div class="text-[10px] font-technical text-white/50 uppercase tracking-widest">n_digital_v.1.0.0.sys</div>
-</div>
-<div class="flex-1 bg-[#F0EDE6] p-8 relative flex items-center justify-center">
-    <div class="relative group flex flex-col items-center">
-        <div class="absolute -inset-6 border border-dashed border-primary/20 rounded-full animate-spin-slow"></div>
-        
-        <img src="images/IMG_3063.PNG" alt="Norte-Bot Mascote" class="relative z-10 w-72 h-auto drop-shadow-[0_20px_30px_rgba(60,79,90,0.3)]">
-            
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section: Interactive Flowchart -->
-<section class="py-24 border-t-2 border-slate-custom/5">
-<div class="text-center mb-20">
-<h2 class="font-display font-black text-4xl uppercase tracking-tight text-slate-custom">Fluxo de Execução</h2>
-<p class="font-technical text-xs font-bold uppercase tracking-[0.3em] text-primary mt-2">Diagrama Técnico de Serviços</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-5 relative gap-8">
-<!-- Connective Horizontal Line for Desktop -->
-<!-- Service 1 -->
-<div class="relative z-10 flex flex-col items-center flow-step-container">
-<div class="size-20 bg-white border-2 border-petrol rounded-sm flex items-center justify-center mb-6 hover:bg-primary hover:text-white transition-all group cursor-default flow-step-icon">
-<span class="material-symbols-outlined text-3xl">compass_calibration</span>
-</div>
-<div class="text-center">
-<h3 class="font-display font-black text-sm uppercase text-slate-custom">01. Briefing</h3>
-<p class="text-xs text-slate-custom/60 mt-2 font-body">Coleta de requisitos e mapeamento de órbita.</p>
-</div>
-<div class="md:hidden h-12 flow-line my-4"></div>
-</div>
-<!-- Service 2 -->
-<div class="relative z-10 flex flex-col items-center flow-step-container">
-<div class="size-20 bg-white border-2 border-petrol rounded-sm flex items-center justify-center mb-6 hover:bg-primary hover:text-white transition-all group cursor-default flow-step-icon">
-<span class="material-symbols-outlined text-3xl">settings_input_component</span>
-</div>
-<div class="text-center">
-<h3 class="font-display font-black text-sm uppercase text-slate-custom">02. Estratégia</h3>
-<p class="text-xs text-slate-custom/60 mt-2 font-body">Cálculo de trajetória e arquitetura robusta.</p>
-</div>
-<div class="md:hidden h-12 flow-line my-4"></div>
-</div>
-<!-- Service 3 -->
-<div class="relative z-10 flex flex-col items-center flow-step-container">
-<div class="size-20 bg-white border-2 border-petrol rounded-sm flex items-center justify-center mb-6 hover:bg-primary hover:text-white transition-all group cursor-default flow-step-icon">
-<span class="material-symbols-outlined text-3xl">view_in_ar</span>
-</div>
-<div class="text-center">
-<h3 class="font-display font-black text-sm uppercase text-slate-custom">03. Design &amp; Dev</h3>
-<p class="text-xs text-slate-custom/60 mt-2 font-body">Construção modular e prototipagem técnica.</p>
-</div>
-<div class="md:hidden h-12 flow-line my-4"></div>
-</div>
-<!-- Service 4 -->
-<div class="relative z-10 flex flex-col items-center flow-step-container">
-<div class="size-20 bg-white border-2 border-petrol rounded-sm flex items-center justify-center mb-6 hover:bg-primary hover:text-white transition-all group cursor-default flow-step-icon">
-<span class="material-symbols-outlined text-3xl">rocket_launch</span>
-</div>
-<div class="text-center">
-<h3 class="font-display font-black text-sm uppercase text-slate-custom">04. Lançamento</h3>
-<p class="text-xs text-slate-custom/60 mt-2 font-body">Execução do go-to-market em tempo real.</p>
-</div>
-<div class="md:hidden h-12 flow-line my-4"></div>
-</div>
-<!-- Service 5 -->
-<div class="relative z-10 flex flex-col items-center flow-step-container">
-<div class="size-20 bg-white border-2 border-petrol rounded-sm flex items-center justify-center mb-6 hover:bg-primary hover:text-white transition-all group cursor-default flow-step-icon">
-<span class="material-symbols-outlined text-3xl">query_stats</span>
-</div>
-<div class="text-center">
-<h3 class="font-display font-black text-sm uppercase text-slate-custom">05. Suporte</h3>
-<p class="text-xs text-slate-custom/60 mt-2 font-body">Monitoramento e evolução contínua.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Technical Excellence Cards -->
-<section class="py-24">
-<div class="grid md:grid-cols-3 gap-8">
-<div class="border border-petrol p-8 bg-white/40 rounded-sm hover:bg-white transition-all">
-<span class="material-symbols-outlined text-primary mb-4 text-4xl">grid_view</span>
-<h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Design Modular</h3>
-<p class="text-slate-custom/70 text-sm leading-relaxed">
-                        Sistemas flexíveis inspirados na modularidade das cabines de comando, garantindo escalabilidade total para o seu produto.
-                    </p>
-</div>
-<div class="border border-petrol p-8 bg-white/40 rounded-sm hover:bg-white transition-all">
-<span class="material-symbols-outlined text-primary mb-4 text-4xl">code_blocks</span>
-<h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Código Limpo</h3>
-<p class="text-slate-custom/70 text-sm leading-relaxed">
-                        Arquitetura de software rigorosa como manuais da IBM dos anos 70, focada em performance bruta e segurança.
-                    </p>
-</div>
-<div class="border border-petrol p-8 bg-white/40 rounded-sm hover:bg-white transition-all">
-<span class="material-symbols-outlined text-primary mb-4 text-4xl">trending_up</span>
-<h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Escalabilidade</h3>
-<p class="text-slate-custom/70 text-sm leading-relaxed">
-                        Pronto para o crescimento. Nossos sistemas são projetados para suportar aumentos drásticos de carga sem falhas estruturais.
-                    </p>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-32 flex flex-col items-center text-center">
-<div class="max-w-2xl window-frame bg-slate-custom text-white p-12 relative overflow-hidden">
-<div class="absolute top-0 right-0 p-4 opacity-10">
-<span class="material-symbols-outlined text-9xl">terminal</span>
-</div>
-<h2 class="font-display font-black text-4xl md:text-5xl uppercase tracking-tighter mb-6 relative z-10">
-                    Pronto para a <span class="text-primary">Ignição</span>?
-                </h2>
-<p class="text-white/70 mb-10 font-body relative z-10">
-                    Nossa equipe de engenharia e design está a postos. Vamos transformar sua visão em realidade técnica.
-                </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-<button class="bg-primary text-white font-display font-bold uppercase text-sm tracking-widest px-10 py-4 border-2 border-white retro-shadow">
-                        Fale Conosco
-                    </button>
-<button class="bg-transparent text-white font-display font-bold uppercase text-sm tracking-widest px-10 py-4 border-2 border-white/30 hover:bg-white/10 transition-all">
-                        Baixar Portfólio PDF
-                    </button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-white border-t border-slate-custom/10 py-12 px-6">
-<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-<div class="space-y-4">
-<div class="flex items-center gap-2">
-<div class="size-6 bg-slate-custom flex items-center justify-center text-white rounded-sm">
-<span class="material-symbols-outlined text-xs">navigation</span>
-</div>
-<span class="font-display font-black text-lg tracking-tighter text-slate-custom">NORTE DIGITAL</span>
-</div>
-<p class="text-xs text-slate-custom/60 uppercase tracking-widest font-technical">
-                    © 1972-2024 Norte Digital Systems. <br/>All Technical Specs Reserved.
-                </p>
-</div>
-<div class="space-y-4">
-<h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Endereço</h4>
-<p class="text-sm text-slate-custom/80 leading-tight" data-location="São Paulo, Brazil">
-                    Rua da Inovação, 404<br/>
-                    01311-000, São Paulo - SP
-                </p>
-</div>
-<div class="space-y-4">
-<h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Status</h4>
-<div class="flex items-center gap-2">
-<span class="size-2 bg-green-500 rounded-full"></span>
-<span class="text-sm text-slate-custom/80 font-technical">Sistemas Operacionais</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="size-2 bg-green-500 rounded-full"></span>
-<span class="text-sm text-slate-custom/80 font-technical">Link de Comunicação</span>
-</div>
-</div>
-<div class="space-y-4">
-<h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Newsletter</h4>
-<div class="flex">
-<input class="bg-background-light border-2 border-slate-custom/20 border-r-0 rounded-l-sm focus:ring-0 focus:border-primary px-3 text-xs flex-1" placeholder="user@norte.digital" type="text"/>
-<button class="bg-slate-custom text-white px-4 py-2 text-xs font-bold uppercase border-2 border-slate-custom rounded-r-sm">Join</button>
-</div>
-</div>
-</div>
+                    </div>
+                </div>
 
-</footer>
+                <div class="relative">
+                    <div class="window-frame bg-white rounded-sm overflow-hidden aspect-square flex flex-col">
+                        <div class="bg-slate-custom px-4 py-2 flex items-center justify-between border-b-2 border-slate-custom">
+                            <div class="flex gap-2">
+                                <div class="size-3 rounded-full border border-white/30"></div>
+                                <div class="size-3 rounded-full border border-white/30"></div>
+                            </div>
+                            <div class="text-[10px] font-technical text-white/50 uppercase tracking-widest">n_digital_v.1.0.0.sys</div>
+                        </div>
+                        <div class="flex-1 bg-[#F0EDE6] p-8 relative flex items-center justify-center">
+                            <div class="relative group flex flex-col items-center">
+                                <div class="absolute -inset-6 border border-dashed border-primary/20 rounded-full animate-spin-slow"></div>
+                                <img src="images/IMG_3063.PNG" alt="Norte-Bot Mascote" class="relative z-10 w-72 h-auto drop-shadow-[0_20px_30px_rgba(60,79,90,0.3)]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-
-
-
-
-
+    <script src="script.js"></script>
+</body>
+</html>
