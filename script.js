@@ -350,10 +350,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if(typeof ContactSystem !== 'undefined') ContactSystem.init(); 
 
     // Botões Universais
-    const missionBtn = document.getElementById('btn-iniciar');
-    if(missionBtn) {
-        missionBtn.addEventListener('click', () => {
-            alert("SISTEMA ONLINE: Iniciando sequência de ignição...");
-        });
+   const missionBtn = document.getElementById('btn-iniciar');
+
+if(missionBtn) {
+    missionBtn.addEventListener('click', () => {
+        // Passo 1: O alerta bloqueia a tela até o clique no 'OK'
+        alert("SISTEMA ONLINE: Iniciando sequência de ignição...");
+
+        // Passo 2: Insira o número com o código do país (ex: 55 para o Brasil) e o DDD.
+        const numeroWhatsApp = "5511999999999"; 
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}`;
+
+        // Passo 3: Escolha o método de redirecionamento (descomente a opção desejada)
+
+        // Opção A: Abre o WhatsApp em uma NOVA ABA (Recomendado)
+        window.open(linkWhatsApp, "_blank");
+
+        // Opção B: Abre o WhatsApp na MESMA ABA
+        // window.location.href = linkWhatsApp;
+    });
     }
 });
