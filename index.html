@@ -27,14 +27,18 @@
                 <a class="hover:text-primary transition-colors" href="#">Manual</a>
                 <a class="hover:text-primary transition-colors" href="#">Contato</a>
             </div>
-            <button class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all" id="btn-iniciar">
+            <button id="btn-iniciar" class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
                 Iniciar Missão
             </button>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-6">
+        
         <section class="relative pt-20 pb-32 overflow-hidden">
+            <div class="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/4">
+                <span class="material-symbols-outlined text-[400px]">compass_calibration</span>
+            </div>
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3 py-1 border border-slate-custom/20 rounded-sm bg-white/50 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-slate-custom">
@@ -51,6 +55,9 @@
                         <button class="bg-primary text-white font-display font-bold uppercase text-sm tracking-widest px-8 py-4 border-2 border-slate-custom retro-shadow">
                             Briefing de Projeto
                         </button>
+                        <button class="bg-transparent text-slate-custom font-display font-bold uppercase text-sm tracking-widest px-8 py-4 border-2 border-slate-custom hover:bg-slate-custom hover:text-white transition-all">
+                            Ver Portfólio
+                        </button>
                     </div>
                 </div>
 
@@ -63,12 +70,29 @@
                             </div>
                             <div class="text-[10px] font-technical text-white/50 uppercase tracking-widest">n_digital_v.1.0.0.sys</div>
                         </div>
-                        <div class="flex-1 bg-[#F0EDE6] p-8 relative flex items-center justify-center">
-                            <div class="relative group flex flex-col items-center">
-                                <div class="absolute -inset-6 border border-dashed border-primary/20 rounded-full animate-spin-slow"></div>
-                                <img src="images/IMG_3063.PNG" alt="Norte-Bot Mascote" class="relative z-10 w-72 h-auto drop-shadow-[0_20px_30px_rgba(60,79,90,0.3)]">
+                        <div class="flex-1 bg-[#F0EDE6] p-12 relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 border-[20px] border-transparent">
+                                <div class="absolute top-4 left-4 w-12 h-[1px] bg-slate-custom/20"></div>
+                                <div class="absolute top-4 left-4 w-[1px] h-12 bg-slate-custom/20"></div>
+                                <div class="absolute bottom-4 right-4 w-12 h-[1px] bg-slate-custom/20"></div>
+                                <div class="absolute bottom-4 right-4 w-[1px] h-12 bg-slate-custom/20"></div>
+                            </div>
+                            <div class="relative group">
+                                <div class="absolute -inset-8 border border-dashed border-primary/40 rounded-full animate-spin-slow"></div>
+                                <div class="text-[200px] leading-none font-display font-black text-slate-custom select-none">N</div>
+                                <div class="absolute -top-4 left-1/2 -translate-x-1/2 flex gap-1 items-end h-4">
+                                    <div class="w-[1px] h-full bg-primary/40"></div>
+                                    <div class="w-[1px] h-1/2 bg-primary/40"></div>
+                                    <div class="w-[1px] h-1/2 bg-primary/40"></div>
+                                    <div class="w-[1px] h-1/2 bg-primary/40"></div>
+                                    <div class="w-[1px] h-full bg-primary/40"></div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 w-48 h-48 window-frame bg-white p-2 transform -rotate-3 hidden md:block retro-shadow">
+                        <img class="w-full h-full object-cover" alt="Norte-Bot" src="images/IMG_3063.PNG"/>
+                        <div class="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none"></div>
                     </div>
                 </div>
             </div>
@@ -76,4 +100,146 @@
 
         <section id="arquitetura-metodo" class="relative py-24 border-t-2 border-slate-custom/20">
             <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 border border-petrol/30 rounded-sm bg-petrol/5 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-petrol">
+                        <span class="material-symbols-outlined text-[12px]">schema</span>
+                        Processo Lógico V.8.0
+                    </div>
+                    <h2 class="font-display font-black text-4xl md:text-5xl tracking-tighter text-slate-custom uppercase">
+                        Fluxo de <br/> <span class="text-primary">Execução</span>
+                    </h2>
+                </div>
+                <p class="font-technical text-sm text-slate-custom/70 max-w-sm border-l-2 border-slate-custom pl-4">
+                    Metodologia metódica projetada para transformar a visão do cliente em uma ferramenta estratégica de alto impacto.
+                </p>
+            </div>
 
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4 relative flowchart-circuit" id="flowchart-nodes">
+                    </div>
+
+                <div class="lg:col-span-5 sticky top-28">
+                    <div class="window-frame bg-white rounded-sm overflow-hidden flex flex-col retro-shadow">
+                        <div class="bg-slate-custom px-4 py-2 flex items-center justify-between border-b-2 border-slate-custom">
+                            <div class="flex gap-2">
+                                <div class="size-3 rounded-full bg-red-400/80 border border-slate-custom"></div>
+                                <div class="size-3 rounded-full bg-yellow-400/80 border border-slate-custom"></div>
+                                <div class="size-3 rounded-full bg-green-400/80 border border-slate-custom"></div>
+                            </div>
+                            <div class="text-[10px] font-technical text-white/50 uppercase tracking-widest">sys_output_log.exe</div>
+                        </div>
+                        <div class="bg-background-light p-6 h-[400px] flex flex-col justify-center relative" aria-live="polite" id="tech-terminal">
+                            <div class="text-center terminal-idle">
+                                <span class="material-symbols-outlined text-6xl text-slate-custom/20 mb-4 animate-pulse">cable</span>
+                                <p class="font-technical text-slate-custom/60 uppercase text-sm tracking-widest">Aguardando input de <br> diagnóstico estrutural...</p>
+                                <p class="text-[10px] text-primary font-bold mt-2 hover-instruction">Passe o mouse sobre os módulos ao lado</p>
+                            </div>
+                            <div class="terminal-content hidden h-full flex flex-col justify-center">
+                                <div class="text-[10px] font-technical text-primary uppercase tracking-widest mb-2" id="term-step-number">Etapa // 01</div>
+                                <h3 class="font-display font-black text-2xl text-slate-custom mb-4 uppercase" id="term-title">Briefing</h3>
+                                <p class="text-slate-custom/80 font-body text-sm leading-relaxed border-l-2 border-petrol pl-4 mb-6" id="term-desc">Coleta de dados.</p>
+                                <div class="bg-slate-custom text-white font-technical text-[11px] p-4 rounded-sm border border-slate-custom shadow-inner overflow-hidden relative">
+                                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-petrol"></div>
+                                    <span class="text-primary">></span> run_diagnostic.sh<br>
+                                    <span class="text-green-400" id="term-code">Output code here...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 border-t-2 border-slate-custom/20">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-2 border-slate-custom p-8 bg-white rounded-sm hover:-translate-y-2 transition-transform retro-shadow">
+                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">grid_view</span>
+                    <h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Design Modular</h3>
+                    <p class="text-slate-custom/70 text-sm leading-relaxed font-body">
+                        Sistemas flexíveis inspirados na modularidade das cabines de comando, garantindo escalabilidade total para o seu produto.
+                    </p>
+                </div>
+                <div class="border-2 border-slate-custom p-8 bg-white rounded-sm hover:-translate-y-2 transition-transform retro-shadow">
+                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">code_blocks</span>
+                    <h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Código Limpo</h3>
+                    <p class="text-slate-custom/70 text-sm leading-relaxed font-body">
+                        Arquitetura de software rigorosa como manuais da IBM dos anos 70, focada em performance bruta e segurança.
+                    </p>
+                </div>
+                <div class="border-2 border-slate-custom p-8 bg-white rounded-sm hover:-translate-y-2 transition-transform retro-shadow">
+                    <span class="material-symbols-outlined text-primary mb-4 text-4xl">trending_up</span>
+                    <h3 class="font-display font-black text-xl text-slate-custom uppercase mb-3 tracking-tighter">Escalabilidade</h3>
+                    <p class="text-slate-custom/70 text-sm leading-relaxed font-body">
+                        Pronto para o crescimento. Nossos sistemas são projetados para suportar aumentos drásticos de carga sem falhas estruturais.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 flex flex-col items-center text-center">
+            <div class="max-w-3xl w-full window-frame bg-slate-custom text-white p-12 relative overflow-hidden retro-shadow">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <span class="material-symbols-outlined text-9xl">terminal</span>
+                </div>
+                <h2 class="font-display font-black text-4xl md:text-5xl uppercase tracking-tighter mb-6 relative z-10">
+                    Pronto para a <span class="text-primary">Ignição</span>?
+                </h2>
+                <p class="text-white/70 mb-10 font-body relative z-10 max-w-xl mx-auto">
+                    Nossa equipe de engenharia e design está a postos. Vamos transformar sua visão em realidade técnica.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                    <button class="bg-primary text-white font-display font-bold uppercase text-sm tracking-widest px-10 py-4 border-2 border-white retro-shadow hover:bg-white hover:text-primary transition-colors">
+                        Fale Conosco
+                    </button>
+                    <button class="bg-transparent text-white font-display font-bold uppercase text-sm tracking-widest px-10 py-4 border-2 border-white/30 hover:bg-white/10 transition-all">
+                        Baixar Portfólio PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t-2 border-slate-custom py-12 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="size-6 bg-slate-custom flex items-center justify-center text-white rounded-sm">
+                        <span class="material-symbols-outlined text-xs">navigation</span>
+                    </div>
+                    <span class="font-display font-black text-lg tracking-tighter text-slate-custom">NORTE DIGITAL</span>
+                </div>
+                <p class="text-xs text-slate-custom/60 uppercase tracking-widest font-technical">
+                    © 1972-2026 Norte Digital Systems. <br/>All Technical Specs Reserved.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Endereço</h4>
+                <p class="text-sm text-slate-custom/80 font-body leading-tight">
+                    Rua da Inovação, 404<br/>
+                    01311-000, São Paulo - SP
+                </p>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Status</h4>
+                <div class="flex items-center gap-2">
+                    <span class="size-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-sm text-slate-custom/80 font-technical uppercase text-xs">Sistemas Operacionais</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="size-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-sm text-slate-custom/80 font-technical uppercase text-xs">Link de Comunicação</span>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-technical font-bold text-xs uppercase text-primary tracking-widest">Newsletter</h4>
+                <div class="flex">
+                    <input class="bg-background-light border-2 border-slate-custom border-r-0 rounded-l-sm focus:ring-0 focus:outline-none px-3 text-xs flex-1 py-2 font-technical" placeholder="user@norte.digital" type="text"/>
+                    <button class="bg-slate-custom text-white px-4 py-2 text-xs font-bold uppercase border-2 border-slate-custom rounded-r-sm hover:bg-primary transition-colors">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
