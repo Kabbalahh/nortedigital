@@ -1,0 +1,53 @@
+/* Configurações de Variáveis e TailWind via CSS */
+:root {
+    --primary: #d3785a;
+    --slate-custom: #3C4F5A;
+    --petrol: #2A6369;
+    --background-light: #FFF8ED;
+}
+
+body {
+    background-color: var(--background-light);
+    background-image: radial-gradient(var(--slate-custom) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Utilitários Vintage */
+.retro-shadow {
+    box-shadow: 4px 4px 0px 0px var(--slate-custom);
+    transition: all 0.1s ease;
+}
+
+.retro-shadow:active {
+    box-shadow: 0px 0px 0px 0px var(--slate-custom) !important;
+    transform: translate(2px, 2px) !important;
+}
+
+.window-frame {
+    border: 2px solid var(--slate-custom);
+    box-shadow: 6px 6px 0px 0px var(--slate-custom);
+}
+
+/* Animações Técnicas */
+@keyframes marching-ants-horizontal {
+    0% { background-position: 0 0; }
+    100% { background-position: 24px 0; }
+}
+
+.flow-step-container:hover .flow-step-icon {
+    transform: scale(1.1);
+    background-color: var(--primary) !important;
+    color: white !important;
+    box-shadow: 4px 4px 0px 0px var(--slate-custom);
+}
+
+.animate-spin-slow {
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
