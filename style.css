@@ -1,9 +1,11 @@
-/* Configurações de Variáveis e TailWind via CSS */
+/* =========================================================
+   NORTE DIGITAL: CORE STYLES & VARIABLES
+   ========================================================= */
 :root {
-    --primary: #d3785a;
-    --slate-custom: #3C4F5A;
-    --petrol: #2A6369;
-    --background-light: #FFF8ED;
+    --primary: #D3795C;      /* Terracota Oficial do Manual */
+    --slate-custom: #3C4F5A; /* Cinza Ardósia */
+    --petrol: #2A6369;       /* Azul Petróleo */
+    --background-light: #FFF8ED; /* Off-White */
 }
 
 body {
@@ -14,7 +16,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Utilitários Vintage */
+/* Utilitários Vintage & Componentes Físicos */
 .retro-shadow {
     box-shadow: 4px 4px 0px 0px var(--slate-custom);
     transition: all 0.1s ease;
@@ -27,24 +29,11 @@ body {
 
 .window-frame {
     border: 2px solid var(--slate-custom);
-    box-shadow: 6px 6px 0px 0px var(--slate-custom);
 }
 
-/* Animações Técnicas */
-@keyframes marching-ants-horizontal {
-    0% { background-position: 0 0; }
-    100% { background-position: 24px 0; }
-}
-
-.flow-step-container:hover .flow-step-icon {
-    transform: scale(1.1);
-    background-color: var(--primary) !important;
-    color: white !important;
-    box-shadow: 4px 4px 0px 0px var(--slate-custom);
-}
-
+/* Animações Globais */
 .animate-spin-slow {
-    animation: spin 8s linear infinite;
+    animation: spin 12s linear infinite;
 }
 
 @keyframes spin {
@@ -53,9 +42,8 @@ body {
 }
 
 /* =========================================================
-   SEC: FLUXOGRAMA CUSTOM STYLES (SISTEMA DE ENGAJAMENTO) 
+   FLUXOGRAMA INTERATIVO (UX AI MODULE)
    ========================================================= */
-
 .flowchart-node {
     background-color: white;
     border: 2px solid var(--slate-custom);
@@ -66,7 +54,6 @@ body {
     z-index: 10;
 }
 
-/* Hover effect simulando tecla de maquinário antigo */
 .flowchart-node:hover, .flowchart-node.active-node {
     background-color: var(--background-light);
     transform: translate(-2px, -2px);
@@ -82,8 +69,8 @@ body {
 .flowchart-circuit::before {
     content: '';
     position: absolute;
-    top: 10%;
-    bottom: 10%;
+    top: 5%;
+    bottom: 5%;
     left: 50%;
     width: 2px;
     background: repeating-linear-gradient(
@@ -94,7 +81,7 @@ body {
       transparent 8px
     );
     z-index: 0;
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 @media (max-width: 640px) {
