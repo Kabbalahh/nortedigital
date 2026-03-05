@@ -397,6 +397,49 @@ const ManualSystem = (() => {
 
     return { init };
 })();
+
+// =========================================================
+// MÓDULO: TERMINAL DE COMUNICAÇÃO (CONTATO & BRIEFING)
+// =========================================================
+const ContactSystem = (() => {
+    const init = () => {
+        const form = document.getElementById('briefing-form');
+        const terminalResponse = document.getElementById('form-terminal-response');
+        
+        if (!form) return; // Fail-safe se não estiver na página de contato
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita o reload da página
+
+            // UX AI: Troca o botão para estado de carregamento
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin-slow">sync</span> PROCESSANDO...';
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            btn.disabled = true;
+
+            // Simulação de delay de rede e processamento (Hacker feel)
+            setTimeout(() => {
+                // Esconde o formulário e mostra o log do terminal
+                form.classList.add('hidden');
+                terminalResponse.classList.remove('hidden');
+                
+                // Efeito de digitação no terminal de sucesso
+                const responseText = terminalResponse.innerHTML;
+                terminalResponse.innerHTML = '';
+                let i = 0;
+                
+                // Limpando tags HTML para o efeito de digitação funcionar corretamente
+                // Numa aplicação real, usaríamos manipulação de nós. Aqui, KISS.
+                terminalResponse.innerHTML = '> ESTABELECENDO CONEXÃO SEGURA...<br>> TRANSMITINDO DADOS CRIPTOGRAFADOS... [OK]<br>> <span class="text-white">Relatório recebido. O Consultor Especializado analisará suas coordenadas e iniciará contato via WhatsApp em breve.</span>';
+                
+            }, 1500); // 1.5s de delay simulado
+        });
+    };
+
+    return { init };
+})();
+
 // =========================================================
 // INICIALIZAÇÃO DO SISTEMA
 // =========================================================
@@ -425,6 +468,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
     if(typeof DesignSystem !== 'undefined') DesignSystem.init();
     if(typeof ManualSystem !== 'undefined') ManualSystem.init(); // <--- MÓDULO DO MANUAL INICIADO
+
+        // =========================================================
+// INICIALIZAÇÃO MASTER DO SISTEMA
+// =========================================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Norte Digital Architecture: All Systems Go.");
+    
+    if(typeof FluxogramaSystem !== 'undefined') FluxogramaSystem.init();
+    if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
+    if(typeof DesignSystem !== 'undefined') DesignSystem.init();
+    if(typeof ManualSystem !== 'undefined') ManualSystem.init();
+    if(typeof ContactSystem !== 'undefined') ContactSystem.init(); // <--- MÓDULO DE CONTATO INICIADO
+});
 });
         });
     }
