@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="selection:bg-primary selection:text-white">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Manual do Sistema | Norte Digital</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background-light text-slate-900">
+
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm window-frame">
+                    <span class="material-symbols-outlined text-lg">navigation</span>
+                </div>
+                <a href="index.html" class="font-display font-black text-xl tracking-tighter text-slate-custom hover:text-primary transition-colors">NORTE DIGITAL</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10 font-technical text-sm font-bold uppercase tracking-widest text-slate-custom/70">
+                <a class="hover:text-primary transition-colors" href="catalogo.html">Sistemas</a>
+                <a class="hover:text-primary transition-colors" href="design.html">Design</a>
+                <a class="hover:text-primary transition-colors text-primary" href="manual.html">Manual</a>
+                <a class="hover:text-primary transition-colors" href="#">Contato</a>
+            </div>
+            <button id="btn-iniciar" class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
+                Iniciar Missão
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        
+        <header class="mb-20 border-b-4 border-slate-custom pb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-petrol/30 rounded-sm bg-petrol/5 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-petrol">
+                <span class="material-symbols-outlined text-[12px]">menu_book</span>
+                Documentação Oficial | Revisão 8.4
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-end">
+                <div>
+                    <h1 class="font-display font-black text-5xl md:text-7xl tracking-tighter text-slate-custom uppercase leading-[0.9]">
+                        Manual da <br/> <span class="text-primary">Agência</span>
+                    </h1>
+                </div>
+                <p class="font-body text-base text-slate-custom/80 border-l-2 border-primary pl-6 py-2">
+                    A Norte Digital é uma agência especializada que une precisão técnica à estratégia de negócios. Não entregamos apenas layouts; construímos sua infraestrutura de vendas online.
+                </p>
+            </div>
+        </header>
+
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+            
+            <div class="lg:col-span-5 space-y-12 sticky top-28">
+                
+                <div class="window-frame bg-white p-8 retro-shadow relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
+                        <span class="material-symbols-outlined text-[200px] text-petrol">architecture</span>
+                    </div>
+                    <div class="mb-6 flex items-center justify-between border-b-2 border-slate-custom/20 pb-4">
+                        <h3 class="font-display font-black text-xl text-slate-custom uppercase">O Mosaico "N"</h3>
+                        <span class="font-technical text-[10px] text-primary font-bold tracking-widest border border-primary px-2 py-1">SIMBOLOGIA</span>
+                    </div>
+                    <p class="font-body text-sm text-slate-custom/70 leading-relaxed mb-6">
+                        Nosso "N" estilizado representa um mosaico de componentes de interface (UI). Cada bloco simboliza a construção modular e personalizada de cada projeto que assumimos.
+                    </p>
+                    <div class="bg-slate-custom text-white p-4 font-technical text-xs uppercase tracking-widest rounded-sm border-l-4 border-primary">
+                        "Construindo o seu caminho digital, peça por peça."
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-technical text-sm text-primary font-bold uppercase tracking-widest mb-6 border-b border-slate-custom/20 pb-2">Nossos Pilares de Engenharia</h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-petrol text-2xl">verified_user</span>
+                            <div>
+                                <h4 class="font-display font-bold text-sm uppercase text-slate-custom">Autoridade Tecnológica</h4>
+                                <p class="text-xs text-slate-custom/60 font-body mt-1">Sistemas robustos baseados em dados reais.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-petrol text-2xl">account_tree</span>
+                            <div>
+                                <h4 class="font-display font-bold text-sm uppercase text-slate-custom">Processo Lógico</h4>
+                                <p class="text-xs text-slate-custom/60 font-body mt-1">Metodologia transparente explicada passo a passo.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-petrol text-2xl">insights</span>
+                            <div>
+                                <h4 class="font-display font-bold text-sm uppercase text-slate-custom">Orientação a Resultados</h4>
+                                <p class="text-xs text-slate-custom/60 font-body mt-1">Design focado em conversão e captação de leads.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-7">
+                <div class="mb-10 flex items-center justify-between border-b-2 border-slate-custom pb-4">
+                    <h2 class="font-display font-black text-3xl text-slate-custom uppercase">Módulos de Serviço</h2>
+                    <span class="font-technical text-xs text-slate-custom/50 uppercase tracking-widest">sys_services_list</span>
+                </div>
+
+                <div id="services-accordion" class="space-y-4">
+                    </div>
+                
+                <div class="mt-16 bg-petrol p-10 relative overflow-hidden window-frame retro-shadow group">
+                    <div class="absolute right-0 top-0 w-1/2 h-full bg-slate-custom transform -skew-x-12 translate-x-10 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <h3 class="font-display font-black text-3xl text-white uppercase mb-4">Seu site traz resultados?</h3>
+                        <p class="text-white/80 font-body text-sm mb-8 max-w-md">
+                            Se um cliente acessa seu site pelo celular agora, ele consegue finalizar um pedido em menos de 3 cliques? Nós construímos essa ponte.
+                        </p>
+                        <button class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-8 py-4 border-2 border-white hover:bg-white hover:text-primary transition-colors">
+                            Solicitar Diagnóstico
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t-2 border-slate-custom py-12 px-6 mt-20">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="size-6 bg-slate-custom flex items-center justify-center text-white rounded-sm">
+                    <span class="material-symbols-outlined text-xs">navigation</span>
+                </div>
+                <span class="font-display font-black text-lg tracking-tighter text-slate-custom">NORTE DIGITAL</span>
+            </div>
+            <p class="text-xs text-slate-custom/60 uppercase tracking-widest font-technical">
+                © 2026 Norte Digital Systems.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
