@@ -127,7 +127,163 @@ const PortfolioSystem = (() => {
 
     return { init };
 })();
+// =========================================================
+// MÓDULO: LABORATÓRIO DE DESIGN (MASONRY & SOCIAL MEDIA)
+// =========================================================
+const DesignSystem = (() => {
+    // Base de dados de imagens (Simulando imagens reais enviadas por você)
+    const designAssets = [
+        {
+            id: 1,
+            title: 'Norte Digital - Identidade Corporativa',
+            category: 'branding',
+            image: 'images/IMG_3048.png', // O Brand Board
+            type: 'landscape', // Proporção
+            colors: ['#2A6369', '#D3795C', '#FFF8ED']
+        },
+        {
+            id: 2,
+            title: 'Campanha de Orçamento',
+            category: 'social',
+            image: 'images/IMG_3050.png', // O Story
+            type: 'portrait', // Proporção Vertical
+            colors: ['#3C4F5A', '#D3795C']
+        },
+        {
+            id: 3,
+            title: 'Tipografia N Modular',
+            category: 'branding',
+            image: 'images/IMG_3024.png', // O "N" Gigante
+            type: 'portrait', 
+            colors: ['#2A6369', '#FFF8ED']
+        },
+        {
+            id: 4,
+            title: 'Engenharia de Conversão Feed',
+            category: 'social',
+            image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800', // Placeholder Exemplo
+            type: 'square', // Feed quadrado
+            colors: ['#D3795C', '#3C4F5A']
+        },
+        {
+            id: 5,
+            title: 'Mockup Plataforma UX',
+            category: 'branding',
+            image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
+            type: 'landscape',
+            colors: ['#2A6369', '#3C4F5A', '#FFF8ED']
+        }
+    ];
 
+    const init = () => {
+        const grid = document.getElementById('design-grid');
+        const filters = document.querySelectorAll('#design-filters .filter-btn');
+        
+        // Elementos do Modal
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalClose = document.getElementById('close-modal');
+        const modalContent = document.getElementById('modal-content');
+        const mTitle = document.getElementById('modal-title');
+        const mCat = document.getElementById('modal-category');
+        const mColors = document.getElementById('modal-colors');
+
+        if (!grid) return; 
+
+        // RENDERIZADOR DO GRID MASONRY
+        const renderAssets = (filterType = 'all') => {
+            grid.innerHTML = ''; 
+            
+            const filtered = filterType === 'all' 
+                ? designAssets 
+                : designAssets.filter(p => p.category === filterType);
+
+            filtered.forEach(asset => {
+                const item = document.createElement('div');
+                item.className = 'relative group cursor-pointer window-frame retro-shadow bg-white overflow-hidden';
+                
+                // Estrutura HTML do item do Masonry
+                item.innerHTML = `
+                    <img src="${asset.image}" alt="${asset.title}" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                    
+                    <div class="absolute inset-0 bg-slate-custom/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <div class="inline-block px-2 py-1 bg-petrol text-white font-technical text-[10px] font-bold uppercase tracking-widest mb-2 border border-petrol/50">
+                                ${asset.category}
+                            </div>
+                            <h3 class="font-display font-black text-lg text-white leading-tight uppercase mb-2">${asset.title}</h3>
+                            <div class="flex gap-2">
+                                ${asset.colors.map(color => `<div class="size-4 rounded-sm border border-white/20" style="background-color: ${color};" title="${color}"></div>`).join('')}
+                            </div>
+                            <div class="absolute top-4 right-4 text-white/30 group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined">zoom_in_map</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Interação de Abrir Modal (UX AI)
+                item.addEventListener('click', () => openModal(asset));
+                grid.appendChild(item);
+            });
+        };
+
+        // LÓGICA DO MODAL
+        const openModal = (asset) => {
+            modalImg.src = asset.image;
+            mTitle.textContent = asset.title;
+            mCat.textContent = `[ ${asset.category} ]`;
+            
+            // Injeta as cores da paleta no rodapé do modal
+            mColors.innerHTML = asset.colors.map(color => 
+                `<div class="flex items-center gap-1"><div class="size-3 border border-slate-custom/50" style="background-color: ${color};"></div> <span class="text-[9px]">${color}</span></div>`
+            ).join('');
+
+            modal.classList.remove('hidden');
+            // Pequeno delay para animação de fade-in e scale
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        };
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = '';
+            }, 300); // Tempo da transição
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        // Fecha clicando fora da janela
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+
+        // Lógica de Ativação dos Filtros
+        filters.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filters.forEach(f => {
+                    f.classList.remove('bg-slate-custom', 'text-white');
+                    f.classList.add('bg-white', 'text-slate-custom', 'retro-shadow');
+                });
+                
+                const currentBtn = e.target;
+                currentBtn.classList.remove('bg-white', 'text-slate-custom', 'retro-shadow');
+                currentBtn.classList.add('bg-slate-custom', 'text-white');
+
+                renderAssets(currentBtn.dataset.filter);
+            });
+        });
+
+        // Renderiza tudo na inicialização
+        renderAssets('all');
+    };
+
+    return { init };
+})();
 // =========================================================
 // INICIALIZAÇÃO DO SISTEMA
 // =========================================================
@@ -143,6 +299,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if(missionBtn) {
         missionBtn.addEventListener('click', () => {
             alert("SISTEMA ONLINE: Iniciando sequência de ignição...");
+    document.addEventListener('DOMContentLoaded', () => {
+    console.log("Norte Digital Architecture: Deployed successfully.");
+    
+    if(typeof FluxogramaSystem !== 'undefined') FluxogramaSystem.init();
+    if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
+    if(typeof DesignSystem !== 'undefined') DesignSystem.init(); // <--- NOVO MÓDULO
+});
         });
     }
 });
