@@ -284,6 +284,119 @@ const DesignSystem = (() => {
 
     return { init };
 })();
+
+// =========================================================
+// MÓDULO: MANUAL & SERVIÇOS (ACORDEÃO LÓGICO)
+// =========================================================
+const ManualSystem = (() => {
+    // Especificações dos nossos serviços
+    const servicesData = [
+        {
+            id: 'S01',
+            title: 'Arquitetura de Conversão & UX',
+            icon: 'view_quilt',
+            summary: 'Prototipagem lógica focada em guiar o usuário.',
+            details: 'Não desenhamos apenas telas bonitas. Analisamos o fluxo do seu cliente ideal e estruturamos uma hierarquia visual que direciona o olhar para o botão de compra. Do Wireframe ao Mockup de alta fidelidade, aplicamos a psicologia cognitiva e heurísticas de usabilidade para garantir que nenhuma oportunidade de conversão seja perdida.',
+            tags: ['Wireframing', 'User Flow', 'Figma', 'Testes A/B']
+        },
+        {
+            id: 'S02',
+            title: 'Desenvolvimento Web de Alta Performance',
+            icon: 'integration_instructions',
+            summary: 'Engenharia de software com código limpo e escalável.',
+            details: 'Codificamos sistemas robustos como manuais da IBM. Sites ultrarrápidos, responsivos (adaptados para qualquer tela mobile) e integrados com as principais APIs do mercado (WhatsApp, Gateways de Pagamento, CRMs). Nossa arquitetura previne travamentos e minimiza o tempo de carregamento.',
+            tags: ['Front-End', 'Back-End', 'APIs', 'Core Web Vitals']
+        },
+        {
+            id: 'S03',
+            title: 'Engenharia de SEO & Ranqueamento',
+            icon: 'travel_explore',
+            summary: 'Otimização estrutural para dominar os motores de busca.',
+            details: 'Um site invisível é um investimento perdido. Implementamos marcações semânticas avançadas, otimização de tempo de resposta do servidor (TTFB) e hierarquia de tags para que o Google considere a sua plataforma como autoridade no seu nicho, atraindo leads de forma orgânica e contínua.',
+            tags: ['SEO Técnico', 'Lighthouse Optimization', 'Indexação']
+        },
+        {
+            id: 'S04',
+            title: 'Manutenção e Evolução Sistêmica',
+            icon: 'security',
+            summary: 'Suporte blindado e análises métricas contínuas.',
+            details: 'O lançamento é apenas o começo da ignição. Oferecemos monitoramento ativo de tráfego, relatórios de mapa de calor (hotjars) para entender onde os usuários estão clicando, e atualizações de segurança constantes para proteger os dados da sua operação contra vulnerabilidades.',
+            tags: ['Analytics', 'Heatmaps', 'Cyber-Security', 'Suporte SLA']
+        }
+    ];
+
+    const init = () => {
+        const accordionContainer = document.getElementById('services-accordion');
+        if (!accordionContainer) return; // Fail-safe
+
+        servicesData.forEach((service, index) => {
+            const item = document.createElement('div');
+            item.className = 'border-2 border-slate-custom bg-white transition-all duration-300';
+            
+            // Estado inicial: Apenas o primeiro item aberto
+            const isOpen = index === 0;
+            if(isOpen) item.classList.add('retro-shadow', 'translate-x-1', '-translate-y-1');
+
+            item.innerHTML = `
+                <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left group hover:bg-background-light transition-colors focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="size-10 bg-slate-custom/5 border border-slate-custom/20 flex items-center justify-center text-petrol group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+                            <span class="material-symbols-outlined">${service.icon}</span>
+                        </div>
+                        <div>
+                            <div class="font-technical text-[10px] text-primary font-bold uppercase tracking-widest mb-1">CÓDIGO: ${service.id}</div>
+                            <h3 class="font-display font-black text-lg text-slate-custom uppercase group-hover:text-primary transition-colors">${service.title}</h3>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-custom/50 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} icon-chevron">
+                        expand_more
+                    </span>
+                </button>
+                
+                <div class="accordion-body overflow-hidden transition-all duration-500 max-h-0 ${isOpen ? 'max-h-[500px] border-t-2 border-slate-custom/10' : ''}">
+                    <div class="p-6 bg-white">
+                        <p class="font-body text-sm font-bold text-slate-custom mb-3">${service.summary}</p>
+                        <p class="font-body text-sm text-slate-custom/70 leading-relaxed mb-6 border-l-2 border-primary pl-4">${service.details}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${service.tags.map(tag => `<span class="bg-background-light border border-slate-custom/20 text-slate-custom px-2 py-1 text-[10px] font-technical uppercase font-bold">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Lógica de Clique Lógico (Abrir/Fechar)
+            const btn = item.querySelector('.accordion-header');
+            const body = item.querySelector('.accordion-body');
+            const chevron = item.querySelector('.icon-chevron');
+
+            btn.addEventListener('click', () => {
+                const isCurrentlyOpen = body.style.maxHeight || body.classList.contains('max-h-[500px]');
+                
+                // Fecha todos os outros primeiro (UX Clean)
+                document.querySelectorAll('.accordion-body').forEach(b => {
+                    b.style.maxHeight = null;
+                    b.classList.remove('max-h-[500px]', 'border-t-2', 'border-slate-custom/10');
+                });
+                document.querySelectorAll('.icon-chevron').forEach(c => c.classList.remove('rotate-180'));
+                document.querySelectorAll('#services-accordion > div').forEach(parent => {
+                    parent.classList.remove('retro-shadow', 'translate-x-1', '-translate-y-1');
+                });
+
+                // Se não estava aberto, abre o atual
+                if (!isCurrentlyOpen) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                    body.classList.add('border-t-2', 'border-slate-custom/10');
+                    chevron.classList.add('rotate-180');
+                    item.classList.add('retro-shadow', 'translate-x-1', '-translate-y-1');
+                }
+            });
+
+            accordionContainer.appendChild(item);
+        });
+    };
+
+    return { init };
+})();
 // =========================================================
 // INICIALIZAÇÃO DO SISTEMA
 // =========================================================
@@ -305,6 +418,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if(typeof FluxogramaSystem !== 'undefined') FluxogramaSystem.init();
     if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
     if(typeof DesignSystem !== 'undefined') DesignSystem.init(); // <--- NOVO MÓDULO
+    document.addEventListener('DOMContentLoaded', () => {
+    console.log("Norte Digital Architecture: Deployed successfully.");
+    
+    if(typeof FluxogramaSystem !== 'undefined') FluxogramaSystem.init();
+    if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
+    if(typeof DesignSystem !== 'undefined') DesignSystem.init();
+    if(typeof ManualSystem !== 'undefined') ManualSystem.init(); // <--- MÓDULO DO MANUAL INICIADO
 });
         });
     }
