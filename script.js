@@ -1,13 +1,15 @@
-// Configuração do Tailwind (Injetada via JS para manter o HTML limpo)
+// =========================================================
+// CONFIGURAÇÃO TAILWIND JIT
+// =========================================================
 tailwind.config = {
     darkMode: "class",
     theme: {
         extend: {
             colors: {
-                "primary": "#d3785a",
-                "slate-custom": "#3C4F5A",
-                "petrol": "#2A6369",
-                "background-light": "#FFF8ED",
+                "primary": "#D3795C", 
+                "slate-custom": "#3C4F5A", 
+                "petrol": "#2A6369", 
+                "background-light": "#FFF8ED", 
             },
             fontFamily: {
                 "display": ["Montserrat", "sans-serif"],
@@ -19,67 +21,18 @@ tailwind.config = {
 };
 
 // =========================================================
-// MÓDULO: CONTROLLER DO FLUXOGRAMA CRIATIVO
+// MÓDULO: CONTROLLER DO FLUXOGRAMA CRIATIVO (UX AI)
 // =========================================================
 const FluxogramaSystem = (() => {
-    // Banco de Dados Local baseado no Manual da Norte Digital
     const stepsData = [
-        {
-            id: '01',
-            icon: 'travel_explore',
-            title: 'Briefing e Descoberta',
-            desc: 'Envio do questionário para captar identidade, objetivos e funcionalidades. Finalizado com uma reunião tática de alinhamento.',
-            code: 'STATUS: Iniciando coleta de dados... [OK]\nTARGET: Validar rumo do projeto.'
-        },
-        {
-            id: '02',
-            icon: 'account_tree',
-            title: 'Planejamento Lógico',
-            desc: 'Definição do Sitemap e arquitetura da informação. Criamos o esqueleto da conversão antes de aplicar o design.',
-            code: 'BUILD_SITEMAP();\nASSERT(UserFlow === "Optimized");'
-        },
-        {
-            id: '03',
-            icon: 'wireframe',
-            title: 'Prototipagem UI/UX',
-            desc: 'Criação de wireframes e moodboards para estabelecer a visão e a estrutura básica da interface.',
-            code: 'LOAD module "UX_Heuristics";\nRENDER_WIREFRAMES().await;'
-        },
-        {
-            id: '04',
-            icon: 'brush',
-            title: 'Design Visual',
-            desc: 'Aplicação do branding e criação dos layouts finais. É neste momento que o cliente aprova o design.',
-            code: 'APPLY(colors: ["#2A6369", "#D3795C"]);\nAWAIT_CLIENT_APPROVAL();'
-        },
-        {
-            id: '05',
-            icon: 'code_blocks',
-            title: 'Desenvolvimento Técnico',
-            desc: 'Codificação do site, otimização para motores de busca (SEO) e implementação de layout totalmente responsivo.',
-            code: 'COMPILE_FRONTEND();\nINJECT_SEO_TAGS();\nTEST(Responsive === True);'
-        },
-        {
-            id: '06',
-            icon: 'bug_report',
-            title: 'Homologação e Testes',
-            desc: 'Revisão técnica de navegação, usabilidade e velocidade de carregamento em ambiente de staging.',
-            code: 'RUN_QA_SUITE();\nCHECK_CORE_WEB_VITALS(); // [PASS]'
-        },
-        {
-            id: '07',
-            icon: 'rocket_launch',
-            title: 'Go-Live e Lançamento',
-            desc: 'Publicação oficial no domínio do cliente. O ambiente é transferido para a infraestrutura de produção.',
-            code: 'DEPLOY_TO_PRODUCTION();\nDNS_PROPAGATION: Verificando...'
-        },
-        {
-            id: '08',
-            icon: 'monitoring',
-            title: 'Suporte e Evolução',
-            desc: 'Análise de métricas, suporte contínuo e aplicação de melhorias iterativas focadas em resultados.',
-            code: 'INIT_ANALYTICS_TRACKER();\nSYSTEM_STATUS: ONLINE & SCALING;'
-        }
+        { id: '01', icon: 'travel_explore', title: 'Briefing e Descoberta', desc: 'Envio do questionário para captar identidade, objetivos e funcionalidades.', code: 'STATUS: Iniciando coleta... [OK]\nTARGET: Validar rumo do projeto.' },
+        { id: '02', icon: 'account_tree', title: 'Planejamento Lógico', desc: 'Definição do Sitemap e arquitetura da informação. Criamos o esqueleto da conversão.', code: 'BUILD_SITEMAP();\nASSERT(UserFlow === "Optimized");' },
+        { id: '03', icon: 'wireframe', title: 'Prototipagem UI/UX', desc: 'Criação de wireframes e moodboards para estabelecer a estrutura básica.', code: 'LOAD module "UX_Heuristics";\nRENDER_WIREFRAMES().await;' },
+        { id: '04', icon: 'brush', title: 'Design Visual', desc: 'Aplicação do branding e criação dos layouts finais para aprovação do cliente.', code: 'APPLY(colors: ["#2A6369", "#D3795C"]);\nAWAIT_CLIENT_APPROVAL();' },
+        { id: '05', icon: 'code_blocks', title: 'Desenvolvimento', desc: 'Codificação do site, otimização SEO e implementação de layout responsivo.', code: 'COMPILE_FRONTEND();\nINJECT_SEO_TAGS();\nTEST(Responsive);' },
+        { id: '06', icon: 'bug_report', title: 'Homologação e Testes', desc: 'Revisão técnica de navegação, usabilidade e velocidade de carregamento.', code: 'RUN_QA_SUITE();\nCHECK_CORE_WEB_VITALS(); // [PASS]' },
+        { id: '07', icon: 'rocket_launch', title: 'Go-Live e Lançamento', desc: 'Publicação oficial no domínio. O ambiente é transferido para produção.', code: 'DEPLOY_TO_PRODUCTION();\nDNS_PROPAGATION: Verificando...' },
+        { id: '08', icon: 'monitoring', title: 'Suporte e Evolução', desc: 'Análise de métricas, suporte contínuo e aplicação de melhorias iterativas.', code: 'INIT_ANALYTICS_TRACKER();\nSYSTEM_STATUS: ONLINE;' }
     ];
 
     const init = () => {
@@ -87,15 +40,13 @@ const FluxogramaSystem = (() => {
         const termIdle = document.querySelector('.terminal-idle');
         const termContent = document.querySelector('.terminal-content');
         
-        if (!container) return; // Fail-safe se o elemento não existir
+        if (!container) return;
 
-        // Elementos do Terminal
         const termNum = document.getElementById('term-step-number');
         const termTitle = document.getElementById('term-title');
         const termDesc = document.getElementById('term-desc');
         const termCode = document.getElementById('term-code');
 
-        // Renderiza os nós no grid dinamicamente
         stepsData.forEach(step => {
             const node = document.createElement('div');
             node.className = 'flowchart-node retro-shadow flex items-start gap-4';
@@ -107,29 +58,23 @@ const FluxogramaSystem = (() => {
                 </div>
             `;
 
-            // Delegação de eventos de UX
             node.addEventListener('mouseenter', () => activateTerminal(step, node));
             node.addEventListener('click', () => activateTerminal(step, node));
 
             container.appendChild(node);
         });
 
-        // Função de ativação do painel lateral (Terminal)
         function activateTerminal(stepData, activeNodeElement) {
-            // Remove estado ativo de todos e adiciona no atual
             document.querySelectorAll('.flowchart-node').forEach(n => n.classList.remove('active-node'));
             activeNodeElement.classList.add('active-node');
 
-            // Troca de UI
             termIdle.classList.add('hidden');
             termContent.classList.remove('hidden');
 
-            // Injeção segura de dados
             termNum.textContent = `Etapa // ${stepData.id}`;
             termTitle.textContent = stepData.title;
             termDesc.textContent = stepData.desc;
             
-            // Simulação de terminal de código (Efeito Hacker)
             termCode.textContent = '';
             let charIndex = 0;
             const codeText = stepData.code;
@@ -149,18 +94,20 @@ const FluxogramaSystem = (() => {
     return { init };
 })();
 
-// Lógica de Inicialização Principal
+// =========================================================
+// INICIALIZAÇÃO DO SISTEMA
+// =========================================================
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Norte Digital System: Online");
+    console.log("Norte Digital Architecture: Deployed successfully.");
     
-    // Inicia o módulo do Fluxograma
+    // Inicia Módulos
     FluxogramaSystem.init();
     
-    // Função existente para o botão 'Iniciar Missão'
+    // Botões de Interação Genérica
     const missionBtn = document.getElementById('btn-iniciar');
     if(missionBtn) {
         missionBtn.addEventListener('click', () => {
-            alert("Iniciando sequência de ignição...");
+            alert("SISTEMA ONLINE: Iniciando sequência de ignição...");
         });
     }
 });
