@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="selection:bg-primary selection:text-white">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Laboratório de Design | Norte Digital</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ajuste para o gap vertical do CSS Columns (Masonry) */
+        .masonry-grid > div {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light text-slate-900">
+
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm window-frame">
+                    <span class="material-symbols-outlined text-lg">navigation</span>
+                </div>
+                <a href="index.html" class="font-display font-black text-xl tracking-tighter text-slate-custom hover:text-primary transition-colors">NORTE DIGITAL</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10 font-technical text-sm font-bold uppercase tracking-widest text-slate-custom/70">
+                <a class="hover:text-primary transition-colors" href="catalogo.html">Sistemas</a>
+                <a class="hover:text-primary transition-colors text-primary" href="design.html">Design</a>
+                <a class="hover:text-primary transition-colors" href="#">Manual</a>
+                <a class="hover:text-primary transition-colors" href="#">Contato</a>
+            </div>
+            <button id="btn-iniciar" class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
+                Iniciar Missão
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        
+        <header class="mb-16 border-b-2 border-slate-custom/20 pb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 border border-petrol/30 rounded-sm bg-petrol/5 text-[10px] font-technical font-bold uppercase tracking-[0.2em] text-petrol">
+                <span class="material-symbols-outlined text-[12px]">palette</span>
+                Laboratório Visual V.2.0
+            </div>
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <h1 class="font-display font-black text-5xl md:text-6xl tracking-tighter text-slate-custom uppercase">
+                    Arquivo de <br/> <span class="text-primary">Design</span>
+                </h1>
+                <p class="font-body text-sm text-slate-custom/70 max-w-md border-l-2 border-primary pl-4">
+                    Composição modular, identidades visuais de alta performance e engenharia aplicada a posts de redes sociais.
+                </p>
+            </div>
+        </header>
+
+        <div class="flex flex-wrap gap-4 mb-10" id="design-filters">
+            <button class="filter-btn active bg-slate-custom text-white font-technical font-bold uppercase text-xs tracking-widest px-6 py-2 border-2 border-slate-custom transition-all" data-filter="all">
+                Painel Completo
+            </button>
+            <button class="filter-btn bg-white text-slate-custom font-technical font-bold uppercase text-xs tracking-widest px-6 py-2 border-2 border-slate-custom hover:bg-slate-custom/10 transition-all retro-shadow" data-filter="social">
+                Social Media
+            </button>
+            <button class="filter-btn bg-white text-slate-custom font-technical font-bold uppercase text-xs tracking-widest px-6 py-2 border-2 border-slate-custom hover:bg-slate-custom/10 transition-all retro-shadow" data-filter="branding">
+                Branding
+            </button>
+        </div>
+
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 masonry-grid" id="design-grid">
+            </div>
+
+    </main>
+
+    <div id="image-modal" class="fixed inset-0 z-[100] bg-slate-custom/95 backdrop-blur-sm hidden flex-col items-center justify-center p-6 opacity-0 transition-opacity duration-300">
+        <button id="close-modal" class="absolute top-6 right-6 text-white hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        
+        <div class="max-w-4xl w-full window-frame bg-background-light flex flex-col retro-shadow transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="bg-slate-custom px-4 py-2 flex items-center justify-between border-b-2 border-slate-custom">
+                <div class="flex gap-2">
+                    <div class="size-3 rounded-full bg-red-400 border border-slate-custom"></div>
+                    <div class="size-3 rounded-full border border-white/30"></div>
+                </div>
+                <div class="text-[10px] font-technical text-white/50 uppercase tracking-widest" id="modal-sys-name">sys_img_viewer.exe</div>
+            </div>
+            <div class="p-4 bg-white flex justify-center max-h-[75vh] overflow-hidden">
+                <img id="modal-image" src="" alt="Ampliado" class="object-contain w-full h-full border border-slate-custom/20">
+            </div>
+            <div class="bg-white border-t-2 border-slate-custom p-4 flex justify-between items-center font-technical text-xs uppercase text-slate-custom">
+                <div class="flex gap-4">
+                    <span id="modal-category" class="font-bold text-primary">CATEGORIA</span>
+                    <span id="modal-title">TITULO DO POST</span>
+                </div>
+                <div class="flex gap-2" id="modal-colors">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t-2 border-slate-custom py-12 px-6 mt-20">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="size-6 bg-slate-custom flex items-center justify-center text-white rounded-sm">
+                    <span class="material-symbols-outlined text-xs">navigation</span>
+                </div>
+                <span class="font-display font-black text-lg tracking-tighter text-slate-custom">NORTE DIGITAL</span>
+            </div>
+            <p class="text-xs text-slate-custom/60 uppercase tracking-widest font-technical">
+                © 2026 Norte Digital Systems.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
