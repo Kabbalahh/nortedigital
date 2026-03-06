@@ -20,7 +20,6 @@ tailwind.config = {
     },
 };
 
-
 // =========================================================
 // 2. MÓDULO HOME: FLUXOGRAMA CRIATIVO (Terminal Lógico)
 // =========================================================
@@ -49,7 +48,8 @@ const FluxogramaSystem = (() => {
 
         stepsData.forEach(step => {
             const node = document.createElement('div');
-            node.className = 'flowchart-node retro-shadow flex items-start gap-4';
+            // ATUALIZAÇÃO MOBILE: Adicionado p-4 e cursor-pointer para melhor UX em touch
+            node.className = 'flowchart-node retro-shadow flex items-start gap-4 p-4 cursor-pointer transition-colors';
             node.innerHTML = `
                 <div class="font-technical text-petrol font-bold opacity-30 text-xl leading-none pt-1">${step.id}</div>
                 <div>
@@ -59,7 +59,16 @@ const FluxogramaSystem = (() => {
             `;
 
             node.addEventListener('mouseenter', () => activateTerminal(step, node));
-            node.addEventListener('click', () => activateTerminal(step, node));
+            
+            // ATUALIZAÇÃO MOBILE: Feedback visual imediato ao tocar na tela
+            node.addEventListener('click', () => {
+                activateTerminal(step, node);
+                if(window.innerWidth < 1024) {
+                    node.classList.add('bg-primary/10');
+                    setTimeout(() => node.classList.remove('bg-primary/10'), 300);
+                }
+            });
+            
             container.appendChild(node);
         });
 
@@ -67,32 +76,33 @@ const FluxogramaSystem = (() => {
             document.querySelectorAll('.flowchart-node').forEach(n => n.classList.remove('active-node'));
             activeNodeElement.classList.add('active-node');
 
-            termIdle.classList.add('hidden');
-            termContent.classList.remove('hidden');
+            if(termIdle) termIdle.classList.add('hidden');
+            if(termContent) termContent.classList.remove('hidden');
 
-            termNum.textContent = `Etapa // ${stepData.id}`;
-            termTitle.textContent = stepData.title;
-            termDesc.textContent = stepData.desc;
+            if(termNum) termNum.textContent = `Etapa // ${stepData.id}`;
+            if(termTitle) termTitle.textContent = stepData.title;
+            if(termDesc) termDesc.textContent = stepData.desc;
             
-            termCode.textContent = '';
-            let charIndex = 0;
-            const codeText = stepData.code;
-            clearInterval(window.typeInterval);
-            
-            window.typeInterval = setInterval(() => {
-                if (charIndex < codeText.length) {
-                    termCode.textContent += codeText.charAt(charIndex);
-                    charIndex++;
-                } else {
-                    clearInterval(window.typeInterval);
-                }
-            }, 15);
+            if(termCode) {
+                termCode.textContent = '';
+                let charIndex = 0;
+                const codeText = stepData.code;
+                clearInterval(window.typeInterval);
+                
+                window.typeInterval = setInterval(() => {
+                    if (charIndex < codeText.length) {
+                        termCode.textContent += codeText.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        clearInterval(window.typeInterval);
+                    }
+                }, 15);
+            }
         }
     };
 
     return { init };
 })();
-
 
 // =========================================================
 // 3. MÓDULO CATÁLOGO: PORTFÓLIO DE SISTEMAS (Bento Grid)
@@ -158,7 +168,6 @@ const PortfolioSystem = (() => {
 
     return { init };
 })();
-
 
 // =========================================================
 // 4. MÓDULO DESIGN: LABORATÓRIO VISUAL (Masonry & Lightbox)
@@ -239,7 +248,6 @@ const DesignSystem = (() => {
     return { init };
 })();
 
-
 // =========================================================
 // 5. MÓDULO MANUAL: ESPECIFICAÇÕES DE SERVIÇOS (Acordeão)
 // =========================================================
@@ -306,7 +314,6 @@ const ManualSystem = (() => {
     return { init };
 })();
 
-
 // =========================================================
 // 6. MÓDULO CONTATO: TERMINAL DE BRIEFING LÓGICO
 // =========================================================
@@ -334,40 +341,28 @@ const ContactSystem = (() => {
     return { init };
 })();
 
-
 // =========================================================
 // 7. INICIALIZAÇÃO MASTER DO SISTEMA
 // =========================================================
-// Este bloco único garante que todos os módulos iniciem sem duplicação de eventos.
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Norte Digital Architecture: All Systems Go.");
     
-    // Inicia os Módulos (se existirem na página atual)
+    // Inicia os Módulos de forma modular e segura
     if(typeof FluxogramaSystem !== 'undefined') FluxogramaSystem.init();
     if(typeof PortfolioSystem !== 'undefined') PortfolioSystem.init();
     if(typeof DesignSystem !== 'undefined') DesignSystem.init();
     if(typeof ManualSystem !== 'undefined') ManualSystem.init();
     if(typeof ContactSystem !== 'undefined') ContactSystem.init(); 
 
-    // Botões Universais
-   const missionBtn = document.getElementById('btn-iniciar');
+    // Botões Universais (Tratamento limpo)
+    const missionBtn = document.getElementById('btn-iniciar');
 
-if(missionBtn) {
-    missionBtn.addEventListener('click', () => {
-        // Passo 1: O alerta bloqueia a tela até o clique no 'OK'
-        alert("SISTEMA ONLINE: Nosso consultor ira lhe atender!");
-
-        // Passo 2: Insira o número com o código do país (ex: 55 para o Brasil) e o DDD.
-        const numeroWhatsApp = "5551992531760"; 
-        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}`;
-
-        // Passo 3: Escolha o método de redirecionamento (descomente a opção desejada)
-
-        // Opção A: Abre o WhatsApp em uma NOVA ABA (Recomendado)
-        window.open(linkWhatsApp, "_blank");
-
-        // Opção B: Abre o WhatsApp na MESMA ABA
-        // window.location.href = linkWhatsApp;
-    });
+    if(missionBtn) {
+        missionBtn.addEventListener('click', () => {
+            alert("SISTEMA ONLINE: Nosso consultor ira lhe atender!");
+            const numeroWhatsApp = "5551992531760"; 
+            const linkWhatsApp = `https://wa.me/${numeroWhatsApp}`;
+            window.open(linkWhatsApp, "_blank");
+        });
     }
 });

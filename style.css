@@ -1,7 +1,7 @@
 /* =========================================================
    NORTE DIGITAL: CORE STYLES & VARIABLES
    ========================================================= */
-:root {
+   :root {
     --primary: #D3795C;      /* Terracota Oficial do Manual */
     --slate-custom: #3C4F5A; /* Cinza Ardósia */
     --petrol: #2A6369;       /* Azul Petróleo */
@@ -12,11 +12,21 @@ body {
     background-color: var(--background-light);
     background-image: radial-gradient(var(--slate-custom) 0.5px, transparent 0.5px);
     background-size: 24px 24px;
-    background-attachment: fixed;
     font-family: 'Open Sans', sans-serif;
+    
+    /* ATUALIZAÇÃO MOBILE: Performance e prevenção de overflow */
+    background-attachment: scroll; 
+    overflow-x: hidden;
+    width: 100%;
 }
 
-/* Utilitários Vintage & Componentes Físicos */
+@media (min-width: 768px) {
+    body { background-attachment: fixed; }
+}
+
+/* =========================================================
+   UTILITÁRIOS VINTAGE & COMPONENTES FÍSICOS
+   ========================================================= */
 .retro-shadow {
     box-shadow: 4px 4px 0px 0px var(--slate-custom);
     transition: all 0.1s ease;
@@ -29,6 +39,12 @@ body {
 
 .window-frame {
     border: 2px solid var(--slate-custom);
+}
+
+/* ATUALIZAÇÃO MOBILE: Ajuste de proporção das sombras */
+@media (max-width: 640px) {
+    .retro-shadow { box-shadow: 3px 3px 0px 0px var(--slate-custom); }
+    .window-frame { box-shadow: 4px 4px 0px 0px var(--slate-custom); }
 }
 
 /* Animações Globais */
@@ -47,8 +63,6 @@ body {
 .flowchart-node {
     background-color: white;
     border: 2px solid var(--slate-custom);
-    padding: 1rem;
-    cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 10;
@@ -63,6 +77,12 @@ body {
 
 .flowchart-node:hover .node-icon, .flowchart-node.active-node .node-icon {
     color: var(--primary);
+}
+
+/* ATUALIZAÇÃO MOBILE: Feedback visual táctil */
+.flowchart-node:active {
+    transform: scale(0.98);
+    background-color: var(--background-light);
 }
 
 /* Simulação de cabos esquemáticos por trás dos cards */
