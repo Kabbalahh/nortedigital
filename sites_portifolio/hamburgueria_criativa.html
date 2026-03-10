@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>O Construtor de Sabor - Gourmet Burger Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1A1614",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hotspot-pulse {
+            box-shadow: 0 0 0 0 rgba(236, 91, 19, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 91, 19, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(236, 91, 19, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 91, 19, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">restaurant_menu</span>
+<h1 class="text-xl font-extrabold tracking-tight uppercase">O Construtor <span class="text-primary">de Sabor</span></h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 mt-16 pb-32 flex flex-col lg:flex-row h-[calc(100vh-4rem)] overflow-hidden">
+<div class="relative flex-1 bg-gradient-to-b from-background-dark to-black overflow-hidden flex items-center justify-center p-8">
+<div class="relative w-full max-w-2xl aspect-square flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-[120px] opacity-30"></div>
+<img class="relative z-10 w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)] object-contain transition-transform duration-500 hover:scale-105" data-alt="Macro photo of a gourmet double smash burger with melting cheese" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARgXKDSDSY6o6kq0sF1Yi-Jo2TYf55eILluxN1LHj4rbVCcRPKKsznRaLXD49MegOl3LWjL4sBHpjjZCyqrkykU_FK1ZFOXMueeDRAiMdeiSKdHlc_Tq0pZTasvLd3lv2X9Ex2of-_f_75CiJ3-HBfRwzGtoRWwo02tHM7wnPv1bOX0ON9KE0KXeuDebJ77-7dsXhwLqdAFZZZbzIEXSSH_LYOgLElc2jrqMAmniSKPBXElGyPrQLoaH-cPkZ3y3IsPugB6Mtj66Wz"/>
+<div class="absolute z-20 top-[20%] left-[55%]">
+<button class="hotspot-pulse bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-white/20">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<div class="absolute left-10 top-0 glass-panel px-3 py-1 rounded-full whitespace-nowrap text-xs font-bold uppercase tracking-wider">Pão Brioche</div>
+</div>
+<div class="absolute z-20 top-[45%] left-[30%]">
+<button class="hotspot-pulse bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-white/20">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<div class="absolute right-10 top-0 glass-panel px-3 py-1 rounded-full whitespace-nowrap text-xs font-bold uppercase tracking-wider">Angus Beef 180g</div>
+</div>
+<div class="absolute z-20 top-[60%] right-[35%]">
+<button class="hotspot-pulse bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-white/20">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<div class="absolute left-10 top-0 glass-panel px-3 py-1 rounded-full whitespace-nowrap text-xs font-bold uppercase tracking-wider">Queijo Cheddar</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+<p class="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-1">Total Estimado</p>
+<h2 class="text-5xl font-black text-white">R$ 44,50</h2>
+</div>
+</div>
+</div>
+<aside class="w-full lg:w-[450px] bg-background-dark border-l border-white/5 flex flex-col overflow-y-auto custom-scrollbar">
+<div class="p-6 space-y-8">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary">Sugestão do Chef (AI)</h3>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">SMART PICK</span>
+</div>
+<div class="glass-panel p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+</div>
+<div>
+<p class="font-bold text-sm">Maionese de Trufas Negras</p>
+<p class="text-slate-400 text-xs">Realce o sabor umami da carne</p>
+</div>
+</div>
+<button class="bg-primary text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-transform active:scale-95">
+                            + R$ 5,00
+                        </button>
+</div>
+</div>
+<section>
+<h3 class="text-sm font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">layers</span>
+                        Customização Tátil
+                    </h3>
+<div class="space-y-3">
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">bakery_dining</span>
+<div>
+<p class="text-sm font-medium">Pão Australiano</p>
+<p class="text-xs text-slate-500">Substituir Brioche</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">add_circle</span>
+</div>
+<div class="p-4 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">skillet</span>
+<div>
+<p class="text-sm font-bold text-primary">Caramelized Onions</p>
+<p class="text-xs text-primary/70">Adicionado</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">set_meal</span>
+<div>
+<p class="text-sm font-medium">Extra Bacon Crispy</p>
+<p class="text-xs text-slate-500">R$ 6,50</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">add_circle</span>
+</div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between hover:bg-white/10 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">flatware</span>
+<div>
+<p class="text-sm font-medium">Picles da Casa</p>
+<p class="text-xs text-slate-500">R$ 3,00</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">add_circle</span>
+</div>
+</div>
+</section>
+</div>
+</aside>
+</main>
+<nav class="fixed bottom-0 w-full z-50 bg-background-dark/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
+<button class="flex flex-col items-center min-w-[70px] px-3 py-1 rounded-xl bg-primary/20 text-primary border border-primary/20">
+<span class="material-symbols-outlined">bakery_dining</span>
+<span class="text-[10px] font-bold uppercase mt-1">Bases</span>
+</button>
+<button class="flex flex-col items-center min-w-[70px] px-3 py-1 rounded-xl text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">chess</span>
+<span class="text-[10px] font-bold uppercase mt-1">Queijos</span>
+</button>
+<button class="flex flex-col items-center min-w-[70px] px-3 py-1 rounded-xl text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-[10px] font-bold uppercase mt-1">Extras</span>
+</button>
+<button class="flex flex-col items-center min-w-[70px] px-3 py-1 rounded-xl text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">liquor</span>
+<span class="text-[10px] font-bold uppercase mt-1">Molhos</span>
+</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="hidden md:block text-right mr-4">
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Total</p>
+<p class="text-xl font-black text-white">R$ 44,50</p>
+</div>
+<button class="flex-1 md:flex-none md:min-w-[240px] h-14 bg-primary hover:bg-primary/90 text-white rounded-xl font-black text-lg shadow-[0_0_20px_rgba(236,91,19,0.4)] transition-all active:scale-95 flex items-center justify-center gap-3 uppercase tracking-wider">
+                    Fazer Pedido
+                    <span class="material-symbols-outlined">keyboard_arrow_right</span>
+</button>
+</div>
+</div>
+</nav>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(236, 91, 19, 0.2); border-radius: 10px; }
+    </style>
+</body></html>
