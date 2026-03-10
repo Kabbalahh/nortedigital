@@ -109,8 +109,8 @@ const FluxogramaSystem = (() => {
 // =========================================================
 const PortfolioSystem = (() => {
     const projects = [
-        { id: 1, title: 'Módulo E-commerce Alpha', category: 'ecommerce', client: 'TechGear Solutions', image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=800', metrics: '+45% Vendas', tech: ['React', 'Node.js'] },
-        { id: 2, title: 'Arquitetura Corporativa', category: 'institucional', client: 'Apex Investimentos', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800', metrics: 'Load < 1.2s', tech: ['Next.js', 'Tailwind'] },
+        { id: 1, title: 'Hamburgueria Criativa', category: 'ecommerce', client: 'Hamburgueria', image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=800', metrics: '+45% Vendas', tech: ['HTML3', 'CSS3'] },
+        { id: 2, title: 'Calculadora para Marcenaria', category: 'institucional', client: 'Apex Investimentos', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800', metrics: 'Load < 1.2s', tech: ['Python', 'Tailwind'] },
         { id: 3, title: 'Landing Page Conversão', category: 'landing', client: 'SaaS Platform X', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800', metrics: '22% Taxa Conv.', tech: ['HTML5', 'JS Vanilla'] },
         { id: 4, title: 'Gateway de Pagamentos', category: 'ecommerce', client: 'PayMobi', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800', metrics: 'Zero Downtime', tech: ['Vue.js', 'Python'] },
         { id: 5, title: 'Portal de Engenharia', category: 'institucional', client: 'Structural BR', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800', metrics: '+200% Leads', tech: ['WordPress', 'PHP'] }
