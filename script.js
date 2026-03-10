@@ -143,7 +143,7 @@ const PortfolioSystem = (() => {
                         <h3 class="font-display font-black text-xl text-slate-custom leading-tight mb-4 uppercase">${proj.title}</h3>
                         <div class="mt-auto pt-4 border-t border-slate-custom/20 flex items-center justify-between">
                             <div class="flex gap-2">${proj.tech.map(t => `<span class="bg-background-light border border-slate-custom/20 text-slate-custom px-2 py-1 text-[9px] font-technical uppercase font-bold">${t}</span>`).join('')}</div>
-                            <button class="text-primary hover:text-petrol transition-colors"><span class="material-symbols-outlined text-xl">arrow_circle_right</span></button>
+                            <a href="${proj.url}" class="text-primary hover:text-petrol transition-colors inline-block"><span class="material-symbols-outlined text-xl">arrow_circle_right</span></a>
                         </div>
                     </div>
                 `;
