@@ -20,7 +20,7 @@
 </head>
 <body class="bg-background-light text-slate-900">
 
-    <nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4">
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-custom/10 bg-white/60 backdrop-blur-md px-6 py-4 relative">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm window-frame">
@@ -28,15 +28,39 @@
                 </div>
                 <a href="index.html" class="font-display font-black text-xl tracking-tighter text-slate-custom hover:text-primary transition-colors">NORTE DIGITAL</a>
             </div>
+            
             <div class="hidden md:flex items-center gap-10 font-technical text-sm font-bold uppercase tracking-widest text-slate-custom/70">
                 <a class="hover:text-primary transition-colors" href="catalogo.html">Sistemas</a>
-                <a class="hover:text-primary transition-colors text-primary" href="design.html">Design</a>
-                <a class="hover:text-primary transition-colors" href="manual.html">Manual</a>
+                <a class="hover:text-primary transition-colors" href="design.html">Design</a>
+                <a class="hover:text-primary transition-colors text-primary" href="manual.html">Manual</a>
                 <a class="hover:text-primary transition-colors" href="contato.html">Contato</a>
             </div>
-            <button id="btn-iniciar" class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
-                Iniciar Missão
-            </button>
+
+            <div class="flex items-center gap-4">
+                <button id="btn-iniciar" class="hidden md:block bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-3 border-2 border-slate-custom retro-shadow transition-all">
+                    Iniciar Missão
+                </button>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-slate-custom hover:text-primary focus:outline-none flex items-center">
+                    <span id="icon-menu" class="material-symbols-outlined text-3xl">menu</span>
+                    <span id="icon-close" class="material-symbols-outlined text-3xl hidden">close</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b-2 border-slate-custom shadow-xl">
+            <div class="flex flex-col font-technical text-sm font-bold uppercase tracking-widest text-slate-custom px-6 py-6 space-y-6">
+                <a class="hover:text-primary transition-colors" href="catalogo.html">Sistemas</a>
+                <a class="hover:text-primary transition-colors" href="design.html">Design</a>
+                <a class="text-primary" href="manual.html">Manual</a>
+                <a class="hover:text-primary transition-colors" href="contato.html">Contato</a>
+                
+                <hr class="border-slate-custom/10">
+                
+                <button class="bg-primary text-white font-display font-bold uppercase text-xs tracking-widest px-6 py-4 border-2 border-slate-custom retro-shadow transition-all w-full text-center">
+                    Iniciar Missão
+                </button>
+            </div>
         </div>
     </nav>
 
