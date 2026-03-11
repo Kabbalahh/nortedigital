@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(missionBtn) {
         missionBtn.addEventListener('click', () => {
             alert("SISTEMA ONLINE: Nosso consultor ira lhe atender!");
-            const numeroWhatsApp = "5551992531760"; 
+            const numeroWhatsApp = "5551993798845"; 
             const linkWhatsApp = `https://wa.me/${numeroWhatsApp}`;
             window.open(linkWhatsApp, "_blank");
         });
