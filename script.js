@@ -366,3 +366,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// =========================================================
+// 8. MENU DROPDOWN MOBILE
+// =========================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const btnMenu = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+
+    if (btnMenu && mobileMenu) {
+        btnMenu.addEventListener('click', () => {
+            // Alterna a visibilidade do menu
+            mobileMenu.classList.toggle('hidden');
+            
+            // Alterna os ícones
+            iconMenu.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+    }
+});
