@@ -370,17 +370,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // 8. MENU DROPDOWN MOBILE
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mapeamento dos Elementos
     const btnMenu = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const iconMenu = document.getElementById('icon-menu');
     const iconClose = document.getElementById('icon-close');
 
+    // 2. Verificação Lógica de Existência
     if (btnMenu && mobileMenu) {
+        // 3. Interceptação do Clique
         btnMenu.addEventListener('click', () => {
-            // Alterna a visibilidade do menu
             mobileMenu.classList.toggle('hidden');
-            
-            // Alterna os ícones
             iconMenu.classList.toggle('hidden');
             iconClose.classList.toggle('hidden');
         });
