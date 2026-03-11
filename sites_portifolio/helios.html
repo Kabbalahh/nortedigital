@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fdb612",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#231d0f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header / Nav -->
+<header class="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-4 justify-between border-b border-slate-200 dark:border-slate-800"><div class="max-w-4xl mx-auto w-full flex items-center justify-between">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl">solar_power</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-3">Helios Prime</h2>
+<div class="flex items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-slate-900 dark:text-slate-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div></header>
+<!-- Hero Section -->
+<section class="relative">
+<div class="@container">
+<div class="relative min-h-[500px] flex flex-col justify-end overflow-hidden bg-slate-900">
+<div class="absolute inset-0 opacity-60">
+<img alt="Solar panels on modern glass building" class="w-full h-full object-cover" data-alt="Modern building with high-tech solar panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Uuv0tB9H_E9236B8UmA-CVW9J6epOG0WrkPjjXVMPO7T2-2QIrqO66fbuGFcu2-VqqQfhgT4KJQ756CMigfkahFu2oqY3FH7u5tHt3nT_1kPha4bBIaCbDZCgd8h7Uxk7GWmwCin49hSn4bwx-6dqx82W2LT3O0yRcDUtiZm8p7kgBYb0c-smmI-yBe-0MNhqSE_uQ1OPHzpZKuHm4LMAPrALYXUCjL7wjzu_azXjuNXnm2llnEx5WY24fbDh0sjCFxjAtfH05s"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+<div class="relative p-6 pb-12"><div class="max-w-4xl mx-auto w-full">
+<h1 class="text-white text-4xl font-bold leading-tight tracking-tight mb-4">
+                        Transforme o seu telhado num ativo financeiro
+                    </h1>
+<p class="text-slate-200 text-lg font-normal mb-8 leading-relaxed">
+                        Engenharia fotovoltaica de alta performance para residências e indústrias de alto padrão.
+                    </p>
+<button class="w-full sm:w-max px-8 bg-primary hover:bg-primary/90 text-background-dark font-bold h-14 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+<span>Solicitar Estudo de Viabilidade</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div></div>
+</div>
+</div>
+</section>
+<!-- Catalog Section -->
+<section class="px-4 py-12 space-y-6"><div class="max-w-4xl mx-auto space-y-6">
+<div class="text-center mb-8">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Soluções Especializadas</h2>
+<div class="h-1 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">home</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Soluções Residenciais</h3>
+<p class="text-slate-600 dark:text-slate-400">Máxima eficiência energética para sua casa, unindo design e sustentabilidade em cada detalhe.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">corporate_fare</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Sistemas Comerciais</h3>
+<p class="text-slate-600 dark:text-slate-400">Redução drástica de custos operacionais e ROI acelerado para empresas visionárias.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">settings_suggest</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Manutenção Especializada</h3>
+<p class="text-slate-600 dark:text-slate-400">Garantia de performance de longo prazo com monitoramento preditivo e limpeza técnica.</p>
+</div>
+</div></section>
+<!-- Technical Differentiators -->
+<section class="bg-slate-900 text-white py-12 px-4"><div class="max-w-4xl mx-auto grid grid-cols-2 gap-4">
+<div class="text-center p-4 border border-white/10 rounded-xl bg-white/5">
+<span class="material-symbols-outlined text-primary text-4xl mb-2">verified</span>
+<div class="text-3xl font-bold">25 <span class="text-sm font-normal">Anos</span></div>
+<p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Eficiência Linear</p>
+</div>
+<div class="text-center p-4 border border-white/10 rounded-xl bg-white/5">
+<span class="material-symbols-outlined text-primary text-4xl mb-2">smartphone</span>
+<div class="text-3xl font-bold">LIVE</div>
+<p class="text-xs text-slate-400 uppercase tracking-widest mt-1">App Monitoring</p>
+</div>
+</div></section>
+<!-- Process Flow -->
+<section class="px-6 py-16 bg-background-light dark:bg-background-dark"><div class="max-w-4xl mx-auto">
+<div class="mb-12">
+<h2 class="text-2xl font-bold">Nosso Processo</h2>
+<p class="text-slate-500">Transparência do início ao fim.</p>
+</div>
+<div class="space-y-0 relative">
+<!-- Timeline Line -->
+<div class="absolute left-[19px] top-2 bottom-2 w-0.5 bg-slate-200 dark:bg-slate-800"></div>
+<!-- Step 1 -->
+<div class="relative flex gap-6 pb-12">
+<div class="relative z-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-background-dark font-bold shrink-0">1</div>
+<div>
+<h4 class="text-lg font-bold">Consultoria</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Análise detalhada do perfil de consumo e necessidades específicas do cliente.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex gap-6 pb-12">
+<div class="relative z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-primary flex items-center justify-center text-slate-900 dark:text-white font-bold shrink-0">2</div>
+<div>
+<h4 class="text-lg font-bold">Estudo de Viabilidade</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Projeto técnico personalizado com projeção financeira de retorno sobre investimento.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex gap-6 pb-12">
+<div class="relative z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-primary flex items-center justify-center text-slate-900 dark:text-white font-bold shrink-0">3</div>
+<div>
+<h4 class="text-lg font-bold">Instalação</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Execução por equipe própria de engenheiros seguindo as mais rígidas normas de segurança.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex gap-6">
+<div class="relative z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-primary flex items-center justify-center text-slate-900 dark:text-white font-bold shrink-0">4</div>
+<div>
+<h4 class="text-lg font-bold">Monitoramento</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Ativação do sistema digital para acompanhamento em tempo real da geração.</p>
+</div>
+</div>
+</div>
+</div></section>
+<!-- Footer -->
+<!-- Testimonials Section -->
+<section class="px-4 py-16 bg-white dark:bg-slate-900/50">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">O que dizem nossos clientes</h2>
+<div class="h-1 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+</div>
+<div class="grid gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-background-light dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden shrink-0">
+<span class="material-symbols-outlined text-slate-400">person</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Ricardo S.</h4>
+<p class="text-xs text-slate-500 uppercase tracking-wide">Proprietário Residencial</p>
+</div>
+</div>
+<div class="flex text-primary mb-3">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic italic text-sm leading-relaxed">
+          "O projeto foi impecável. A equipe da Helios Prime superou todas as expectativas, desde o primeiro contato até o suporte pós-instalação. Minha conta de luz caiu 90%."
+        </p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-background-light dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden shrink-0">
+<span class="material-symbols-outlined text-slate-400">person</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Mariana L.</h4>
+<p class="text-xs text-slate-500 uppercase tracking-wide">Gestora Industrial</p>
+</div>
+</div>
+<div class="flex text-primary mb-3">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic text-sm leading-relaxed">
+          "Investimento com retorno garantido. A transparência no estudo de viabilidade nos deu a confiança necessária para migrar toda a nossa operação para o solar."
+        </p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-background-light dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden shrink-0">
+<span class="material-symbols-outlined text-slate-400">person</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Dr. Carlos Eduardo</h4>
+<p class="text-xs text-slate-500 uppercase tracking-wide">Clínica Odontológica</p>
+</div>
+</div>
+<div class="flex text-primary mb-3">
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+<span class="material-symbols-outlined text-sm fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic text-sm leading-relaxed">
+          "Excelência técnica e atendimento personalizado. Monitoro a geração pelo app e é incrível ver a sustentabilidade acontecendo na prática dia após dia."
+        </p>
+</div>
+</div>
+</div>
+</section><footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-12 pb-24 px-6"><div class="max-w-4xl mx-auto">
+<div class="flex flex-col items-center mb-8">
+<div class="text-primary flex size-12 items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl">solar_power</span>
+</div>
+<p class="text-slate-500 text-center text-sm max-w-xs">
+                Helios Prime Engenharia Fotovoltaica Ltda.
+                Liderança em soluções sustentáveis de alta performance.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8 mb-12">
+<div class="space-y-3">
+<h5 class="font-bold text-sm uppercase tracking-wider text-slate-400">Empresa</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Sobre Nós</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Projetos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Carreiras</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h5 class="font-bold text-sm uppercase tracking-wider text-slate-400">Suporte</h5>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Contato</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Portal do Cliente</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="flex justify-center gap-6 mb-8 border-y border-slate-100 dark:border-slate-800 py-6">
+<div class="flex flex-col items-center opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+<span class="text-[10px] font-bold mt-1">ISO 9001</span>
+</div>
+<div class="flex flex-col items-center opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-2xl">engineering</span>
+<span class="text-[10px] font-bold mt-1">CREA-SP</span>
+</div>
+<div class="flex flex-col items-center opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined text-2xl">eco</span>
+<span class="text-[10px] font-bold mt-1">GREEN TECH</span>
+</div>
+</div>
+<p class="text-center text-xs text-slate-400">
+            © 2024 Helios Prime. Todos os direitos reservados.
+        </p>
+</div></footer>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-4 pb-4 pt-2 shadow-2xl">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-medium">Soluções</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">route</span>
+<span class="text-[10px] font-medium">Processo</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-medium">Contato</span>
+</a>
+</div>
+</nav>
+</body></html>
