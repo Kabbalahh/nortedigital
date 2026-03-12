@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Air Jordan - The Legend</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f20d0d",
+              "background-light": "#f8f5f5",
+              "background-dark": "#221010",
+              "neo-gray": "#e5e7eb",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            borderWidth: {
+              '3': '3px',
+            },
+            boxShadow: {
+              'neo': '4px 4px 0px 0px #000000',
+              'neo-hover': '2px 2px 0px 0px #000000',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neo-brutalism-card {
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px 0px #000000;
+            transition: all 0.2s ease;
+        }
+        .neo-brutalism-card:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0px 0px #000000;
+        }
+        .neo-brutalism-button {
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .neo-brutalism-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen p-4 md:p-8">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Header / Logo -->
+<header class="lg:col-span-12 flex justify-between items-center mb-4">
+<div class="neo-brutalism-card bg-white dark:bg-slate-800 px-6 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">bolt</span>
+<h1 class="text-2xl font-bold tracking-tighter">AIR JORDAN</h1>
+</div>
+<div class="flex gap-4">
+<button class="neo-brutalism-card bg-white dark:bg-slate-800 p-3 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Sidebar (Bento Card) -->
+<aside class="lg:col-span-3 order-2 lg:order-1">
+<nav class="neo-brutalism-card bg-white dark:bg-slate-800 p-6 flex flex-col gap-8 h-full">
+<div class="flex items-center gap-4 border-b-3 border-black pb-6">
+<div class="w-12 h-12 rounded-full bg-primary neo-brutalism-card flex items-center justify-center text-white overflow-hidden">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-bold text-sm uppercase opacity-60">Membro Jordan</p>
+<p class="font-bold">Jordan Retro</p>
+</div>
+</div>
+<ul class="flex flex-col gap-4">
+<li>
+<a class="flex items-center gap-4 p-3 rounded-xl bg-primary/10 border-3 border-black neo-brutalism-button transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-bold">HOME</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">grid_view</span>
+<span class="font-bold">PRODUTOS</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">layers</span>
+<span class="font-bold">COLEÇÕES</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">info</span>
+<span class="font-bold">SOBRE</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
+<span class="font-bold">CONTATO</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-6 flex flex-col gap-3">
+<button class="flex items-center gap-3 p-2 font-bold opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined">chat_bubble</span> Chat Suporte
+                    </button>
+<button class="flex items-center gap-3 p-2 font-bold opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined">settings</span> Configurações
+                    </button>
+</div>
+</nav>
+</aside>
+<!-- Main Hero Section -->
+<main class="lg:col-span-9 order-1 lg:order-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+<section class="md:col-span-2 neo-brutalism-card bg-gradient-to-br from-slate-50 to-slate-200 dark:from-slate-700 dark:to-slate-900 overflow-hidden relative min-h-[450px] flex flex-col justify-between p-8">
+<!-- Background Stylized Elements -->
+<div class="absolute top-10 right-10 opacity-20 select-none pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">cloud</span>
+</div>
+<div class="absolute bottom-20 left-10 opacity-10 select-none pointer-events-none">
+<span class="material-symbols-outlined text-[80px]">star</span>
+</div>
+<div class="z-10 relative">
+<h2 class="text-4xl md:text-6xl font-black leading-none mb-2 tracking-tighter">AIR JORDAN.<br/>THE LEGEND.</h2>
+<p class="text-xl md:text-2xl font-bold bg-primary text-white inline-block px-3 py-1 border-3 border-black neo-brutalism-card">ESTILO QUE VOE.</p>
+</div>
+<!-- Anime Illustration Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
+<div class="w-full max-w-lg aspect-square relative mt-20 md:mt-0">
+<div class="absolute inset-0 bg-contain bg-center bg-no-repeat transition-transform hover:scale-105" data-alt="Anime style illustration of Air Jordan 1 with thick black strokes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtKH_k7pQYllrbeG_ETUPSC_WRcTwu0j51e_6KBdgwXSLWcdkyi5Sumlsk7Z6ixVJR71G1aL-Z5EMyX3_gnEFwJdzcgjnjdpoOiFbSHrXOr9L0jbROrO3N-0aEgQvjEPTh1Aphx24xyfTItH5a59I_KwzGyoESq7rUguvZML2yyy_LghdlWloNd7moggqQGWYB2xYigWsGpD_hyVg1pSJ5_TLyRy7eTXUHko73f-zRQCIXflMFxP3KJNLLFAoCphlMHagkI9TNa-0");'>
+</div>
+</div>
+</div>
+<div class="z-10 relative self-end">
+<span class="text-sm font-black uppercase tracking-widest text-slate-500">Retro High OG 'Chicago'</span>
+</div>
+</section>
+<!-- Widget Card: What's New -->
+<section class="neo-brutalism-card bg-white dark:bg-slate-800 p-6 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-black uppercase italic">O que há de novo</h3>
+<span class="material-symbols-outlined">new_releases</span>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-neo-gray dark:bg-slate-700 neo-brutalism-card flex items-center justify-center group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">footprint</span>
+</div>
+<span class="text-[10px] font-black uppercase">Retro</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-neo-gray dark:bg-slate-700 neo-brutalism-card flex items-center justify-center group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">checkroom</span>
+</div>
+<span class="text-[10px] font-black uppercase">Apparel</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-neo-gray dark:bg-slate-700 neo-brutalism-card flex items-center justify-center group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</div>
+<span class="text-[10px] font-black uppercase">Drops</span>
+</div>
+</div>
+</section>
+<!-- CTA Card -->
+<section class="neo-brutalism-card bg-white dark:bg-slate-800 p-6 flex flex-col justify-between items-start gap-4">
+<div>
+<h3 class="text-2xl font-black leading-tight mb-2 italic">EXPLORE O ICÔNICO</h3>
+<p class="text-sm font-medium opacity-70">A história do basquete e da moda urbana em seus pés.</p>
+</div>
+<button class="w-full bg-primary text-white font-black py-4 px-8 rounded-xl neo-brutalism-button uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all text-lg flex items-center justify-center gap-2">
+                    SHOP NOW
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Mobile -->
+<nav class="lg:hidden fixed bottom-4 left-4 right-4 z-50">
+<div class="neo-brutalism-card bg-white dark:bg-slate-800 p-2 flex justify-around items-center rounded-full">
+<a class="p-3 text-primary" href="#"><span class="material-symbols-outlined text-2xl font-bold">home</span></a>
+<a class="p-3" href="#"><span class="material-symbols-outlined text-2xl">search</span></a>
+<a class="p-3 bg-primary text-white rounded-full neo-brutalism-card h-12 w-12 flex items-center justify-center" href="#"><span class="material-symbols-outlined text-2xl">add</span></a>
+<a class="p-3" href="#"><span class="material-symbols-outlined text-2xl">favorite</span></a>
+<a class="p-3" href="#"><span class="material-symbols-outlined text-2xl">person</span></a>
+</div>
+</nav>
+</div>
+<!-- Extra Space for Mobile Bottom Nav Padding -->
+<div class="h-24 lg:hidden"></div>
+</body></html>
