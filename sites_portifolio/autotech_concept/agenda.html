@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oficina Vintage - Agendamento Online</title>
+<!-- Google Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2a646a',
+              dark: '#1e494d',
+              light: '#3d8e96',
+            },
+            vintage: {
+              gold: '#c5a059',
+              cream: '#f4f1ea',
+              charcoal: '#121212'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '1rem', // ROUND_FOUR logic
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="global-styles">
+    body {
+      background-color: #121212; /* Dark background per theme */
+      color: #f4f1ea;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .vintage-border {
+      border: 2px solid #2a646a;
+    }
+    .input-focus:focus {
+      ring: 2px;
+      ring-color: #2a646a;
+      border-color: #2a646a;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+<!-- BEGIN: Header -->
+<header class="w-full py-8 px-6 border-b border-white/10" data-purpose="site-header">
+<div class="max-w-4xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-3">
+<!-- Vintage Style Logo Placeholder -->
+<div class="w-12 h-12 bg-primary flex items-center justify-center rounded-custom">
+<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-2xl font-bold tracking-tighter uppercase italic">AutoVintage</span>
+</div>
+<nav class="hidden md:block">
+<ul class="flex gap-6 text-sm font-medium uppercase tracking-widest text-primary-light">
+<li><a class="hover:text-white transition" href="#">Serviços</a></li>
+<li><a class="hover:text-white transition" href="#">Sobre</a></li>
+<li><a class="hover:text-white transition" href="#">Contato</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Hero Section -->
+<section class="max-w-4xl w-full px-6 py-12 text-center" data-purpose="hero-content">
+<h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+      Agende em menos de <span class="text-primary">1 minuto</span> e evite filas.
+    </h1>
+<p class="text-lg text-gray-400 max-w-2xl mx-auto">
+      Tecnologia de ponta com o cuidado clássico que seu motor merece. Escolha seu serviço e reserve seu horário agora.
+    </p>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Scheduling Form -->
+<main class="w-full max-w-3xl px-6 mb-20" data-purpose="booking-container">
+<div class="bg-[#1a1a1a] p-8 rounded-custom shadow-2xl border border-white/5 relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+<form class="space-y-6 relative z-10" id="appointment-form">
+<!-- Car Details Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div data-purpose="input-group">
+<label class="block text-sm font-semibold uppercase tracking-wider mb-2 text-primary-light" for="car-model">Veículo</label>
+<input class="w-full bg-vintage-charcoal border-white/10 rounded-custom p-4 text-white focus:border-primary focus:ring-primary transition placeholder:text-gray-600" id="car-model" name="car-model" placeholder="Ex: Mustang 1967 ou Civic 2022" type="text"/>
+</div>
+<div data-purpose="input-group">
+<label class="block text-sm font-semibold uppercase tracking-wider mb-2 text-primary-light" for="service-type">Serviço</label>
+<select class="w-full bg-vintage-charcoal border-white/10 rounded-custom p-4 text-white focus:border-primary focus:ring-primary transition" id="service-type" name="service-type">
+<option value="">Selecione o serviço</option>
+<option value="troca-oleo">Troca de Óleo Classic</option>
+<option value="revisao-geral">Revisão Completa</option>
+<option value="freios">Manutenção de Freios</option>
+<option value="suspensao">Suspensão &amp; Alinhamento</option>
+<option value="diagnostico">Diagnóstico Especializado</option>
+</select>
+</div>
+</div>
+<!-- Date and Time Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div data-purpose="input-group">
+<label class="block text-sm font-semibold uppercase tracking-wider mb-2 text-primary-light" for="date">Data Desejada</label>
+<input class="w-full bg-vintage-charcoal border-white/10 rounded-custom p-4 text-white focus:border-primary focus:ring-primary transition" id="date" name="date" type="date"/>
+</div>
+<div data-purpose="input-group">
+<label class="block text-sm font-semibold uppercase tracking-wider mb-2 text-primary-light" for="time">Melhor Horário</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">08:00</button>
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">10:00</button>
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">14:00</button>
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">16:00</button>
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">17:00</button>
+<button class="py-2 px-3 bg-vintage-charcoal border border-white/10 rounded-custom hover:bg-primary/20 hover:border-primary transition text-xs font-bold" type="button">Outro</button>
+</div>
+</div>
+</div>
+<!-- Contact Info -->
+<div data-purpose="input-group">
+<label class="block text-sm font-semibold uppercase tracking-wider mb-2 text-primary-light" for="phone">WhatsApp para Confirmação</label>
+<input class="w-full bg-vintage-charcoal border-white/10 rounded-custom p-4 text-white focus:border-primary focus:ring-primary transition placeholder:text-gray-600" id="phone" name="phone" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-5 rounded-custom transition-all transform hover:-translate-y-1 shadow-lg shadow-primary/20 uppercase tracking-widest" type="submit">
+            Confirmar Agendamento
+          </button>
+<p class="text-center text-xs text-gray-500 mt-4 italic">
+            * Retornaremos em até 15 minutos via WhatsApp.
+          </p>
+</div>
+</form>
+</div>
+</main>
+<!-- END: Scheduling Form -->
+<!-- BEGIN: Footer -->
+<footer class="w-full py-12 border-t border-white/10 bg-[#0d0d0d]" data-purpose="footer-info">
+<div class="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h4 class="text-primary font-bold uppercase mb-4 text-sm">Localização</h4>
+<p class="text-gray-400 text-sm leading-relaxed">
+          Rua das Bielas, 1024<br/>
+          Bairro Industrial, São Paulo - SP
+        </p>
+</div>
+<div>
+<h4 class="text-primary font-bold uppercase mb-4 text-sm">Horário de Funcionamento</h4>
+<p class="text-gray-400 text-sm leading-relaxed">
+          Seg - Sex: 08:00 às 18:00<br/>
+          Sábados: 08:00 às 13:00
+        </p>
+</div>
+<div>
+<h4 class="text-primary font-bold uppercase mb-4 text-sm">Contato Direto</h4>
+<p class="text-gray-400 text-sm leading-relaxed">
+          (11) 4002-8922<br/>
+          contato@autovintage.com
+        </p>
+</div>
+</div>
+<div class="text-center mt-12 pt-8 border-t border-white/5">
+<p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2023 AutoVintage Oficina Especializada. Todos os direitos reservados.</p>
+</div>
+</footer>
+<!-- END: Footer -->
+<script data-purpose="form-interactivity">
+    // Simple script to handle button selection styling
+    document.querySelectorAll('button[type="button"]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Reset others
+        document.querySelectorAll('button[type="button"]').forEach(b => {
+          b.classList.remove('bg-primary', 'text-white', 'border-primary');
+          b.classList.add('bg-vintage-charcoal', 'border-white/10');
+        });
+        // Highlight selected
+        this.classList.remove('bg-vintage-charcoal', 'border-white/10');
+        this.classList.add('bg-primary', 'text-white', 'border-primary');
+      });
+    });
+
+    // Form submission simulation
+    document.getElementById('appointment-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Agendamento enviado com sucesso! Aguarde nosso contato via WhatsApp.');
+    });
+  </script>
+</body></html>

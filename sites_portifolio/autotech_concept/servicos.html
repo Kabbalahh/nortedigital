@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Precision Auto Workshop | High-Tech &amp; Vintage Care</title>
+<!-- Google Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2a646a',
+              light: '#3a8a92',
+              dark: '#1a3d41',
+            },
+            accent: '#f3f4f6',
+            darkBg: '#0f1718',
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '1rem', // ROUND_FOUR equivalent
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="typography">
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #0f1718;
+      color: #e5e7eb;
+    }
+    .retro-glow {
+      text-shadow: 0 0 10px rgba(42, 100, 106, 0.5);
+    }
+  </style>
+<style data-purpose="layout-animations">
+    @keyframes pulse-border {
+      0% { border-color: rgba(42, 100, 106, 0.3); }
+      50% { border-color: rgba(42, 100, 106, 1); }
+      100% { border-color: rgba(42, 100, 106, 0.3); }
+    }
+    .scanline-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .scanline-effect::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(42, 100, 106, 0.2);
+      animation: scanline 4s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(1000%); }
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-gray-200">
+<!-- BEGIN: Navigation -->
+<nav class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-primary/20 p-4">
+<div class="max-container mx-auto flex justify-between items-center px-6">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-custom">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-xl font-bold tracking-tighter uppercase">Retro<span class="text-primary">Tech</span> Dynamics</span>
+</div>
+<div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Serviços</a>
+<a class="hover:text-primary transition-colors" href="#">Tecnologia</a>
+<a class="hover:text-primary transition-colors" href="#">Sobre</a>
+<a class="px-4 py-2 bg-primary rounded-custom hover:bg-primary-light transition-all" href="#">Agendar</a>
+</div>
+</div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<header class="relative py-20 overflow-hidden border-b border-primary/10" data-purpose="hero">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<!-- Blueprint-like grid background -->
+<div class="h-full w-full bg-[linear-gradient(rgba(42,100,106,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(42,100,106,0.2)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+          ALTA TECNOLOGIA <br/>
+<span class="text-primary retro-glow italic">MESTRE ARTESÃO</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-400 mb-8 max-w-xl">
+          Combinamos scanners de última geração com a precisão da mecânica tradicional. Diagnósticos computadorizados para a performance definitiva.
+        </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary-light text-white font-bold py-4 px-8 rounded-custom transition-all flex items-center gap-2">
+            CONSULTAR SERVIÇOS
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="border border-primary/50 hover:bg-primary/10 text-primary font-bold py-4 px-8 rounded-custom transition-all">
+            VER DIAGNÓSTICOS
+          </button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Services Grid -->
+<main class="container mx-auto px-6 py-24" id="servicos">
+<div class="text-center mb-16">
+<h2 class="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-2">Especialidades</h2>
+<p class="text-3xl md:text-4xl font-bold">NOSSOS SERVIÇOS</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1: Manutenção Preventiva -->
+<article class="bg-darkBg border border-primary/20 p-8 rounded-custom hover:border-primary transition-all group scanline-effect" data-purpose="service-card">
+<div class="mb-6 text-primary group-hover:scale-110 transition-transform">
+<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Manutenção Preventiva</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Check-up antecipado com análise preditiva para garantir a longevidade do seu motor.
+        </p>
+<ul class="text-xs text-primary/80 space-y-2 font-mono">
+<li>&gt; Troca de Fluídos</li>
+<li>&gt; Filtros de Precisão</li>
+<li>&gt; Revisão de Sistemas</li>
+</ul>
+</article>
+<!-- Card 2: Diagnóstico Computadorizado -->
+<article class="bg-primary/5 border border-primary/40 p-8 rounded-custom hover:border-primary transition-all group relative overflow-hidden" data-purpose="service-card">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="text-xs font-mono">SCN-094</span>
+</div>
+<div class="mb-6 text-primary group-hover:scale-110 transition-transform">
+<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Diagnóstico Computadorizado</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Scanners avançados que lêem cada sensor do veículo. Identificamos falhas invisíveis.
+        </p>
+<div class="w-full bg-black/50 h-16 rounded-md p-2 mb-4 border border-primary/30 font-mono text-[10px] text-green-500 overflow-hidden">
+<div class="animate-pulse">
+            ANALYZING SYSTEM...<br/>
+            OK - FUEL INJECTION<br/>
+            OK - TRANSMISSION
+          </div>
+</div>
+</article>
+<!-- Card 3: Mecânica Geral -->
+<article class="bg-darkBg border border-primary/20 p-8 rounded-custom hover:border-primary transition-all group" data-purpose="service-card">
+<div class="mb-6 text-primary group-hover:scale-110 transition-transform">
+<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Mecânica Geral</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Do motor à suspensão. Intervenções precisas utilizando ferramentas de calibração milimétrica.
+        </p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-primary/10 rounded text-[10px] border border-primary/20">SUSPENSÃO</span>
+<span class="px-2 py-1 bg-primary/10 rounded text-[10px] border border-primary/20">FREIOS</span>
+</div>
+</article>
+<!-- Card 4: Estética Automotiva -->
+<article class="bg-darkBg border border-primary/20 p-8 rounded-custom hover:border-primary transition-all group" data-purpose="service-card">
+<div class="mb-6 text-primary group-hover:scale-110 transition-transform">
+<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Estética Automotiva</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Refinamento visual com proteção cerâmica e polimento técnico. Brilho futurista em formas vintage.
+        </p>
+<button class="text-xs text-primary font-bold hover:underline">VER GALERIA →</button>
+</article>
+</div>
+</main>
+<!-- END: Services Grid -->
+<!-- BEGIN: Interactive Diagram Section -->
+<section class="bg-primary/5 py-24 border-y border-primary/20" data-purpose="technical-diagram">
+<div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-bold mb-6 tracking-tight">PRECISÃO CIRÚRGICA <br/><span class="text-primary italic">EM CADA COMPONENTE</span></h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full border border-primary flex items-center justify-center shrink-0 mt-1">1</div>
+<div>
+<h4 class="font-bold uppercase tracking-wide">Mapeamento Térmico</h4>
+<p class="text-sm text-gray-400">Sensores infravermelhos para detecção de pontos de fricção excessiva.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full border border-primary flex items-center justify-center shrink-0 mt-1">2</div>
+<div>
+<h4 class="font-bold uppercase tracking-wide">Calibração a Laser</h4>
+<p class="text-sm text-gray-400">Geometria e balanceamento com precisão de 0.01mm.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full border border-primary flex items-center justify-center shrink-0 mt-1">3</div>
+<div>
+<h4 class="font-bold uppercase tracking-wide">Análise de Redes CAN</h4>
+<p class="text-sm text-gray-400">Monitoramento em tempo real da comunicação entre módulos eletrônicos.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Canvas Area -->
+<div class="relative bg-black rounded-custom border border-primary/30 aspect-square flex items-center justify-center overflow-hidden">
+<canvas class="w-full h-full opacity-60" id="engineCanvas"></canvas>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<div class="text-[10px] font-mono text-primary/70 mb-2">SYSTEM_SCAN: ACTIVE</div>
+<div class="w-48 h-48 border-2 border-primary/40 rounded-full animate-[spin_10s_linear_infinite] flex items-center justify-center">
+<div class="w-32 h-32 border border-primary/20 rounded-full animate-[spin_5s_linear_infinite_reverse]"></div>
+</div>
+<div class="mt-4 text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded">CALIBRATING...</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Interactive Diagram Section -->
+<!-- BEGIN: CTA Section -->
+<section class="py-24 text-center">
+<div class="container mx-auto px-6 max-w-2xl">
+<h2 class="text-3xl md:text-5xl font-bold mb-8 italic">PRONTO PARA O PRÓXIMO NÍVEL?</h2>
+<p class="text-gray-400 mb-10">Agende seu diagnóstico hoje e experimente o padrão de excelência RetroTech.</p>
+<form class="flex flex-col md:flex-row gap-4 justify-center">
+<input class="bg-transparent border-primary/30 border rounded-custom px-6 py-4 focus:ring-primary focus:border-primary text-white w-full md:w-64" placeholder="Seu Telefone / WhatsApp" type="text"/>
+<button class="bg-primary hover:bg-primary-light text-white font-bold py-4 px-10 rounded-custom transition-all shadow-lg shadow-primary/20 uppercase tracking-widest" type="submit">
+          AGENDAR AGORA
+        </button>
+</form>
+</div>
+</section>
+<!-- END: CTA Section -->
+<!-- BEGIN: Footer -->
+<footer class="bg-black py-12 border-t border-primary/10">
+<div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-bold tracking-tighter uppercase">Retro<span class="text-primary">Tech</span></span>
+<p class="text-[10px] text-gray-600 font-mono mt-1">EST. 1984 - UPGRADED 2024</p>
+</div>
+<div class="flex gap-10 text-xs font-medium text-gray-500 uppercase">
+<a class="hover:text-primary transition-colors" href="#">Termos</a>
+<a class="hover:text-primary transition-colors" href="#">Privacidade</a>
+<a class="hover:text-primary transition-colors" href="#">Localização</a>
+</div>
+<div class="text-[10px] text-gray-600 font-mono">
+        © 2024 RETRO TECH DYNAMICS. ALL RIGHTS RESERVED.
+      </div>
+</div>
+</footer>
+<!-- END: Footer -->
+<script data-purpose="canvas-setup">
+    const canvas = document.getElementById('engineCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function drawGrid() {
+      ctx.strokeStyle = 'rgba(42, 100, 106, 0.1)';
+      ctx.lineWidth = 1;
+      const step = 30;
+      
+      for(let x = 0; x < canvas.width; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for(let y = 0; y < canvas.height; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawGrid();
+      
+      // Random "data pulses"
+      ctx.fillStyle = 'rgba(42, 100, 106, 0.4)';
+      for(let i = 0; i < 5; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        ctx.fillRect(x, y, 2, 2);
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  </script>
+</body></html>
