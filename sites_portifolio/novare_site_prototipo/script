@@ -1,0 +1,157 @@
+// =========================================================================
+    // MÓDULO 5: PAINEL DE CONTROLE TÉRMICO (Hardware UI Imersivo com Telemetria)
+    // =========================================================================
+    const serviceTabs = document.querySelectorAll('.service-tab');
+    const displayImages = document.querySelectorAll('.display-img');
+    
+    const elTemp = document.getElementById('panel-temp');
+    const elSetpoint = document.getElementById('panel-setpoint');
+    const elCompStatus = document.getElementById('comp-status');
+    const elCompIndicator = document.getElementById('comp-indicator');
+    const elMetricLabel = document.getElementById('metric-label');
+    const elMetricVal = document.getElementById('panel-metric');
+    const elEfficiency = document.getElementById('panel-efficiency');
+
+    const panelData = {
+        'camaras': { targetTemp: -18.0, comp: 'ATIVO', color: 'text-blue-500', indicator: 'bg-blue-500', metricLabel: 'Umidade', metricVal: '45.0%', eff: '99.9' },
+        'chillers': { targetTemp: 7.0, comp: '100% CARGA', color: 'text-[#00FFFF]', indicator: 'bg-[#00FFFF]', metricLabel: 'Pressão', metricVal: '4.2 Bar', eff: '98.5' },
+        'datacenter': { targetTemp: 21.0, comp: 'INVERTER', color: 'text-green-500', indicator: 'bg-green-500', metricLabel: 'Umidade', metricVal: '50.0%', eff: '99.9' },
+        'pmoc': { targetTemp: 23.5, comp: 'STANDBY', color: 'text-yellow-500', indicator: 'bg-yellow-500', metricLabel: 'Filtros', metricVal: 'LIMPO', eff: '100.0' }
+    };
+
+    let tempInterval;
+    let telemetryInterval;
+
+    serviceTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+
+            // 1. Atualizar visual das abas
+            serviceTabs.forEach(t => {
+                t.classList.remove('border-[#0033FF]', 'bg-blue-50/40', 'active');
+                t.classList.add('border-gray-200', 'bg-white');
+                const blueBar = t.querySelector('div');
+                if(blueBar) blueBar.remove();
+            });
+            this.classList.remove('border-gray-200', 'bg-white');
+            this.classList.add('border-[#0033FF]', 'bg-blue-50/40', 'active');
+            if(!this.querySelector('div.absolute.left-0')) {
+                const bar = document.createElement('div');
+                bar.className = 'absolute left-0 top-0 bottom-0 w-1 bg-[#0033FF]';
+                this.prepend(bar);
+            }
+
+            // 2. Crossfade das Imagens
+            displayImages.forEach(img => img.classList.replace('opacity-100', 'opacity-0'));
+            const activeImage = document.getElementById(`img-${target}`);
+            if (activeImage) activeImage.classList.replace('opacity-0', 'opacity-100');
+
+            // 3. Setup Inicial do Hardware
+            const data = panelData[target];
+            
+            elSetpoint.innerText = `SET: ${data.targetTemp.toFixed(1)}°C`;
+            elCompStatus.innerText = data.comp;
+            elCompStatus.className = `font-digital text-sm ${data.color}`;
+            elMetricLabel.innerText = data.metricLabel;
+            
+            // Define cor do LCD de temperatura
+            elTemp.className = `digital-glow font-digital text-2xl mt-1 ${data.color}`;
+            elCompIndicator.className = `w-3 h-3 rounded-full ${data.indicator} animate-pulse`;
+
+            // Limpa loops anteriores
+            clearInterval(tempInterval);
+            clearInterval(telemetryInterval);
+
+            // Fase 1: Resfriamento rápido (Buscando o Setpoint)
+            let currentTemp = 28.0; 
+            
+            tempInterval = setInterval(() => {
+                currentTemp += (data.targetTemp - currentTemp) * 0.15;
+                elTemp.innerText = currentTemp.toFixed(1) + '°C';
+
+                // Se atingiu o alvo, encerra a Fase 1 e inicia a Fase 2
+                if (Math.abs(currentTemp - data.targetTemp) < 0.2) {
+                    clearInterval(tempInterval);
+                    elCompIndicator.classList.remove('animate-pulse'); // Compressor estabiliza
+                    
+                    // Fase 2: Telemetria Viva (Flutuação Lenta Contínua)
+                    telemetryInterval = setInterval(() => {
+                        // Flutuação sutil de temperatura (+/- 0.2)
+                        let tempWobble = (Math.random() * 0.4) - 0.2;
+                        elTemp.innerText = (data.targetTemp + tempWobble).toFixed(1) + '°C';
+                        
+                        // Flutuação da Métrica Secundária (Pressão/Umidade)
+                        if(data.metricVal !== 'LIMPO') {
+                            let baseMetric = parseFloat(data.metricVal);
+                            let unit = data.metricVal.replace(/[0-9.]/g, ''); // Isola texto (Bar, %)
+                            let metricWobble = (Math.random() * 0.6) - 0.3;
+                            elMetricVal.innerText = (baseMetric + metricWobble).toFixed(1) + unit;
+                        } else {
+                            elMetricVal.innerText = data.metricVal;
+                        }
+
+                        // Flutuação da Eficiência SLA (Ex: 99.90 a 99.99)
+                        let baseEff = parseFloat(data.eff);
+                        let effWobble = (Math.random() * 0.09);
+                        elEfficiency.innerText = (baseEff + effWobble).toFixed(2) + '%';
+
+                    }, 1500); // Atualiza a cada 1.5 segundos (lentamente, parecendo leitura real)
+                }
+            }, 50); 
+        });
+    });
+
+    // Auto-click no primeiro item ao carregar a página
+    window.addEventListener('load', () => {
+        const firstTab = document.querySelector('.service-tab[data-target="camaras"]');
+        if(firstTab) firstTab.click();
+    });
+
+    // =========================================================================
+    // MÓDULO 6: MOBILE MENU RESPONSIVO
+    // Controla a abertura e fechamento suave do menu no celular
+    // =========================================================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                // Muda o ícone para um 'X'
+                mobileMenuBtn.innerHTML = `<svg class="w-6 h-6 text-[#0033FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Volta o ícone para Hamburger
+                mobileMenuBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>`;
+            }
+        });
+
+        // Fecha o menu automaticamente quando o usuário clica em um link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>`;
+            });
+        });
+    }
+
+    // =========================================================================
+    // MÓDULO 7: OTIMIZAÇÃO TOUCH (Anti-Gargalo para Mobile)
+    // Desativa efeitos magnéticos complexos em telas de toque (celulares)
+    // =========================================================================
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    
+    if (isTouchDevice) {
+        // Se for celular, removemos os listeners magnéticos para evitar travamentos
+        // O CSS puro lidará melhor com o clique.
+        const magneticElements = document.querySelectorAll('.tech-border');
+        magneticElements.forEach(elem => {
+            // Remove o hover transform no mobile substituindo a classe
+            elem.classList.remove('hover:-translate-y-2');
+        });
+    }   
