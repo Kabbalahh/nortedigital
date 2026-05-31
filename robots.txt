@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kabbalahh.github.io/nortedigital/sitemap.xml
