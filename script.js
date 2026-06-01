@@ -25,14 +25,14 @@ tailwind.config = {
 // =========================================================
 const FluxogramaSystem = (() => {
     const stepsData = [
-        { id: '01', icon: 'travel_explore', title: 'Briefing', desc: 'Envio do questionário para captar identidade e objetivos.', code: 'STATUS: Iniciando coleta... [OK]\nTARGET: Validar rumo.' },
-        { id: '02', icon: 'account_tree', title: 'Estratégia Lógica', desc: 'Definição do Sitemap e arquitetura da informação.', code: 'BUILD_SITEMAP();\nASSERT(Flow === "Optimized");' },
-        { id: '03', icon: 'wireframe', title: 'Prototipagem UI/UX', desc: 'Criação de wireframes para estabelecer a estrutura básica.', code: 'LOAD module "UX_Heuristics";\nRENDER_WIREFRAMES().await;' },
-        { id: '04', icon: 'brush', title: 'Design Visual', desc: 'Aplicação do branding e criação dos layouts finais para aprovação.', code: 'APPLY(colors: ["#2A6369", "#D3795C"]);\nAWAIT_CLIENT();' },
-        { id: '05', icon: 'code_blocks', title: 'Desenvolvimento', desc: 'Codificação do site, otimização SEO e layout responsivo.', code: 'COMPILE_FRONTEND();\nINJECT_SEO();\nTEST(Responsive);' },
-        { id: '06', icon: 'bug_report', title: 'Testes de Qualidade', desc: 'Revisão técnica de navegação, usabilidade e carregamento.', code: 'RUN_QA_SUITE();\nCHECK_WEB_VITALS(); // [PASS]' },
-        { id: '07', icon: 'rocket_launch', title: 'Go-Live Lançamento', desc: 'Publicação oficial. O ambiente é transferido para produção.', code: 'DEPLOY_TO_PRODUCTION();\nDNS_PROPAGATION: OK...' },
-        { id: '08', icon: 'monitoring', title: 'Suporte SLA', desc: 'Análise de métricas e suporte contínuo para escalabilidade.', code: 'INIT_ANALYTICS();\nSYSTEM_STATUS: ONLINE;' }
+        { id: '01', icon: 'travel_explore', title: 'Briefing', desc: 'Envio do questionário para captar identidade e objetivos.', code: 'O briefing é o mapa do projeto. Da perspectiva do cliente, ele é essencial porque evita retrabalho, reduz custos e garante que o resultado final corresponda exatamente à expectativa e aos objetivos de negócio da empresa.' },
+        { id: '02', icon: 'account_tree', title: 'Estratégia Lógica', desc: 'Com atedimento humano entedemos sua real necessidade!', code: 'Mapeamento dados, construindo uma base solida de ideias, gerenciamento em processos lógicos com alto desempenho' },
+        { id: '03', icon: 'wireframe', title: 'Prototipagem UI/UX', desc: 'Criação de wireframes para estabelecer a estrutura básica.', code: 'Pensamos no seu cliente final e como sua propagando ira impacta-lo' },
+        { id: '04', icon: 'brush', title: 'Design Visual', desc: 'Aplicação do branding e criação dos layouts finais para aprovação.', code: 'Somos especialistar em qualquer tipo de design, tanto gráfico ao web e até mesmo o 3D' },
+        { id: '05', icon: 'code_blocks', title: 'Desenvolvimento', desc: 'Codificação do site, otimização SEO e layout responsivo.', code: 'Nossa responsabilidade é o aumento de publico com estratégias organicâs, SEO é uma das ferramentas mais importantes para um site com alta alcance' },
+        { id: '06', icon: 'bug_report', title: 'Testes de Qualidade', desc: 'Revisão técnica de navegação, usabilidade e carregamento.', code: 'Nossos processos são cautelosos passando por um controle de qualidade com nossa IA interna jarvis X' },
+        { id: '07', icon: 'rocket_launch', title: 'Go-Live Lançamento', desc: 'Publicação oficial. O ambiente é transferido para produção.', code: 'Não precisa se preocupar com a parte chata da web, trabalhamos com hospedagem e serviços em nuvem.' },
+        { id: '08', icon: 'monitoring', title: 'Suporte SLA', desc: 'Análise de métricas e suporte contínuo para escalabilidade.', code: 'Google analitycs e analise de dados com pythom, nossa agência trabalha com BIGDATAS para melhor desemprenho de campanhas assim como estar atualizada constantemente com ajuda da IA jarvis X.' }
     ];
 
     const init = () => {
