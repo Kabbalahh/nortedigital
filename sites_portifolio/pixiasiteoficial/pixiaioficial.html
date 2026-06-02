@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PIX AI - Dashboard Principal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @keyframes pulse-emerald {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 255, 133, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(16, 255, 133, 0.8); }
+        }
+        .animate-pulse-emerald {
+            animation: pulse-emerald 3s infinite ease-in-out;
+        }
+        .glass-panel {
+            background: rgba(4, 23, 19, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 255, 133, 0.15);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .hologram-rotate {
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .particle {
+            position: absolute;
+            background: #62ff96;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .gold-shimmer {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body {
+            background-color: #041713;
+            background-image: radial-gradient(circle at 50% 50%, #021410 0%, #000101 100%);
+            overflow-x: hidden;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#62ff96",
+                        "on-primary-fixed": "#00210c",
+                        "surface-dim": "#041713",
+                        "on-surface": "#d1e7e0",
+                        "emerald-glow": "rgba(16, 255, 133, 0.4)",
+                        "glass-border": "rgba(16, 255, 133, 0.15)",
+                        "surface-container": "#10231f",
+                        "on-surface-variant": "#b9cbb9",
+                        "primary-container": "#10ff85"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono"],
+                        "display-lg": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "spacing": {
+                        "bento-margin": "1rem",
+                        "grid-gap": "1.5rem"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-on-surface font-body-md antialiased min-h-screen flex flex-col items-center">
+<!-- Canvas Background Particles -->
+<div class="fixed inset-0 pointer-events-none z-0" id="particle-container"></div>
+<!-- Top Navigation (Shared Component Integration) -->
+<header class="bg-surface/40 backdrop-blur-xl border-b border-glass-border shadow-[0_0_20px_rgba(16,255,133,0.1)] flex justify-between items-center px-bento-margin py-4 w-full fixed top-0 z-50">
+<div class="font-display-lg text-[24px] font-bold text-primary-fixed tracking-tight">PIX AI</div>
+<div class="hidden md:flex gap-8 items-center">
+<span class="text-primary-fixed font-bold cursor-pointer">Painel</span>
+<span class="text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer">Transações</span>
+<span class="text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer">IA Insights</span>
+<span class="text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer">Segurança</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-primary-container/20 p-2 rounded-full cursor-pointer transition-all">bookmark</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-primary-container/20 p-2 rounded-full cursor-pointer transition-all">swipe_vertical</span>
+<div class="w-10 h-10 rounded-full border border-glass-border overflow-hidden">
+<img alt="Kailash SR Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX1PWit4i_9c_ymck8ozJK4omRvGUBtkTl3RrDai8_oBAMjfELxEjZyHmdP3WmM1PKXVUVWTvPsOQgu2hk7ItiuXcoZ8_dyoDu4-aJNo1lKbBHDAKOUh3D27tBIGQG_iT9KsHIaggMqYnUPu20926MSwTTHmLUbxQ3eKKWiR80mDUL3J4eVvJYBvit4KhGnB1MaCBK1qmQg7Jk6i5cwS0bz5-UjLkRSv38-sYnLQcUq3ybxrZkKw8dd_qd9zaLBwMaCXqTfIubtxDG"/>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="w-full max-w-7xl pt-24 pb-32 px-4 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-6 relative z-10">
+<!-- Left Column (3 Columns) -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<!-- Effortless Transactions -->
+<div class="glass-panel p-6 rounded-3xl h-80 flex flex-col justify-between group overflow-hidden">
+<div class="relative w-24 h-24 mx-auto mt-4">
+<div class="absolute inset-0 bg-primary-fixed opacity-10 blur-xl rounded-full"></div>
+<img class="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(98,255,150,0.5)]" data-alt="A futuristic green glowing letter X symbol encased in a holographic geometric sphere. The aesthetic is clean, high-tech, and luxurious, with neon emerald accents reflecting against a deep black glass-like surface. Atmospheric lighting creates a sense of depth and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_TXkwQiX5mbMHHJG6ZSl9HyKapbmSaw3X__GPvKf5BW4sLosRoS9lY8EC-_VnSM95UdjILOcP0F7saJQoxLSuaSXEQ1-CS_FAwuJ41W25Y49BNo3qCmONzSs2_LshlzEUGqtqIOx1y1Fbx5GcRVLYYrxcbGXH0vdO04LHh6j5KDdxGWpSUjHBybTBaOJ22w7D5jTU0uQdFetnrzCSVVuAXMlVMMSRHxJcCVaeR9QllMc4G69hCqxnXidFx1UFLftevyxi2zak43qV"/>
+</div>
+<div>
+<h2 class="font-headline-lg text-2xl mb-1">Transações Sem Esforço</h2>
+<p class="text-on-surface-variant text-sm">Segurança de IA em Tempo Real</p>
+<div class="mt-4 pt-4 border-t border-glass-border">
+<span class="text-primary-fixed font-label-mono text-xs uppercase tracking-widest group-hover:underline cursor-pointer">Teste grátis de 14 dias</span>
+</div>
+</div>
+</div>
+<!-- Stats & Partners -->
+<div class="glass-panel p-6 rounded-3xl flex-1 flex flex-col justify-center items-center text-center">
+<div class="gold-shimmer font-display-lg text-5xl mb-2">12K</div>
+<p class="text-on-surface-variant font-label-mono text-sm uppercase tracking-tighter">empresas parceiras</p>
+<div class="flex -space-x-4 mt-6">
+<img alt="Partner 1" class="w-12 h-12 rounded-full border-2 border-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn6fQ0MRUHN5ZIoSxGPiJckPvbnmDDQUBqTCh1ZNkIWS3zAIhG0ShTOoUFAXxV3tRcYMpsFapZcoE_5eiRAZ9uh_kdy4xCNJIki3nqw3H0ei85Eb5Qg2XLYFyKb4QZyqsAYa_X1gkCLIqJiWnc2wXrvBag-uHgtSxC-EB8QE4rMwlhdNziehHuIb8YMcORNB1MRj3VwPAKGTXYaa4zqKA3_QSXXe_AvS-pvN7CB9zc0qG7spumxoHVgVb5jJzmLDVHw5gk8qawwAxJ"/>
+<img alt="Partner 2" class="w-12 h-12 rounded-full border-2 border-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF13XD6yc_o8a93qV0nXfXgBRfkdbtc_SFy_QF-9ltCY27Fgi4tixhs-4UzkmBDva_L9U4XjkbdV6U8v4m2OVga60VVNsnLBqJV0-99TI23m3DL-RW6DY5DyvthaIbn1TPjojz3gSjytCCowE0tOaIrXAiB-H21IITfqSN60vVxDGr3n4fWKMx9YmplYjmUiWakaIQ2EWpd0yD-2RdvuGpUGb9WLheqMzFzJLUu3zC0sHvEY553tdpDLfaNsbseBliul2iJvnQc3XS"/>
+<img alt="Partner 3" class="w-12 h-12 rounded-full border-2 border-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIbAKpzhqsB-esKtzh6rbW1X4EyWRaLgDESZWKcmBCtQgD_5XRs7X3LU4t43G-a2qrgPYlM8hqw1IT-EFplUZAJNRlYIfCGmm6qBFf7SwgkrHUzdqY8sb9qXI8dD33WHOA-VEeAGo_Pcqg0gJmF34Ql-Yw-rObsRJRxG2jaEHmJuq1CGYM61azlJzV7hFmkSJwzs1vdcTX-grW-Fu2lTcdC56pv6vODUlNDamS9yNLaLknw-lf6X-VZ0d2TWBx7NjvH_CfwfT02HhX"/>
+</div>
+</div>
+<!-- CTA Primary -->
+<button class="bg-primary-container text-deep-void font-bold py-5 rounded-2xl flex items-center justify-center gap-3 animate-pulse-emerald active:scale-95 transition-transform">
+<span class="material-symbols-outlined">bolt</span>
+                PROCESSAR PAGAMENTO
+            </button>
+</div>
+<!-- Center Column (6 Columns) -->
+<div class="md:col-span-6 flex flex-col gap-6">
+<!-- Holographic Core -->
+<div class="glass-panel rounded-3xl flex-1 flex flex-col items-center justify-center relative overflow-hidden p-8">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,255,133,0.1)_0%,transparent_70%)]"></div>
+</div>
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="font-display-lg text-2xl font-bold tracking-tight">PIX AI</span>
+</div>
+<h1 class="font-headline-lg text-3xl md:text-4xl text-center max-w-md mb-12">Sua Inteligência em Pagamentos Pix</h1>
+<!-- Complex Hologram Animation Area -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+<!-- Spinning Circular Text -->
+<svg class="absolute w-full h-full hologram-rotate opacity-60" viewbox="0 0 100 100">
+<path d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent" id="circlePath"></path>
+<text class="font-label-mono text-[6px] fill-primary-fixed">
+<textpath xlink:href="#circlePath">
+                                PROCESSAMENTO IMEDIATO • SEGURANÇA AVANÇADA • FLUXO PIX • 
+                            </textpath>
+</text>
+</svg>
+<!-- Core Hologram Sphere -->
+<div class="w-48 h-48 rounded-full bg-emerald-glow/20 border border-primary-fixed/30 flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full animate-pulse blur-md bg-primary-fixed/20"></div>
+<img class="w-32 h-32 object-contain mix-blend-screen animate-pulse" data-alt="A complex 3D holographic digital sphere glowing in neon emerald and cyan. The core is densely packed with glowing fiber optic lines and data particles. Surrounding the sphere are thin orbital rings of light that rotate, simulating advanced artificial intelligence and encryption algorithms in motion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC97C7IRv3JNfx7dIbI9S7UXyQTR4ooXokiB_G__JvgRCPZFEgqnCOSmH2xPJuTPraOjVYCPCkHbrHsM3Thpf72CwlEy4oWvMxxcru5-y-fspwhmAiwD3BPxUXk5TTjk6rJnqbqqD8a8UzciXtivt4qH0Bu0ksqK_n0h6MIh0kCQ0CYgsJcrNLvt4M9_VMPDhNZ8A8UDTpABhTevsYs-YeQTCqthMPoiy_RGhk-tfcOAUQO_nHaLRwapWue7oBx7YPpTpGf2QtRp0mj"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (3 Columns) -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<!-- Gold Toggle & Stat -->
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 rounded-3xl flex items-center justify-center">
+<div class="w-16 h-8 bg-surface-container rounded-full relative p-1 cursor-pointer group">
+<div class="absolute inset-0 bg-gradient-to-r from-secondary/40 to-primary-fixed/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
+<div class="w-6 h-6 rounded-full absolute right-1 shadow-lg border border-white/20" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);"></div>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-3xl flex flex-col items-center justify-center">
+<div class="gold-shimmer font-display-lg text-2xl font-bold">25M</div>
+<p class="text-[10px] text-on-surface-variant text-center uppercase">Transações Seguras</p>
+</div>
+</div>
+<!-- Transaction Config -->
+<div class="glass-panel p-6 rounded-3xl flex-1 flex flex-col">
+<h3 class="font-headline-lg text-lg mb-2">Configurações de Transação</h3>
+<p class="text-on-surface-variant text-xs mb-8">Use modelos pré-definidos para faturamento rápido.</p>
+<div class="flex flex-wrap gap-2 relative h-48">
+<!-- Floating Glass Tags -->
+<div class="absolute top-2 left-0 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-duration: 4s;">QR Dinâmico</div>
+<div class="absolute top-4 right-0 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-delay: 1s; animation-duration: 5s;">Análise de Fraude</div>
+<div class="absolute top-16 left-4 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-delay: 2s; animation-duration: 3s;">Chave Aleatória</div>
+<div class="absolute bottom-16 right-4 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-delay: 1.5s; animation-duration: 4.5s;">24/7 Suporte</div>
+<div class="absolute bottom-4 left-0 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-delay: 0.5s; animation-duration: 3.5s;">14 days trial</div>
+<div class="absolute bottom-2 right-0 px-3 py-1.5 rounded-full border border-glass-border backdrop-blur-md text-[10px] bg-white/5 animate-bounce" style="animation-delay: 2.5s; animation-duration: 5.5s;">Fluxo Otimizado</div>
+<!-- Cloud Background Decor -->
+<div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[100px] text-primary-fixed">cloud</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface-container-highest/60 backdrop-blur-lg border-t border-glass-border shadow-[0_-4px_24px_rgba(0,228,117,0.15)]">
+<div class="flex flex-col items-center justify-center text-primary-fixed relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary-fixed after:rounded-full">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-mono text-[10px]">Início</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="font-label-mono text-[10px]">Pix</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-mono text-[10px]">Histórico</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-mono text-[10px]">Perfil</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full max-w-7xl px-4 py-8 mt-auto flex justify-center items-center">
+<div class="glass-panel px-8 py-3 rounded-full flex items-center gap-4 group cursor-pointer transition-all hover:border-primary-fixed/40">
+<span class="text-on-surface-variant text-sm font-label-mono">By <span class="text-primary-fixed font-bold">Bentogrids.com</span></span>
+<span class="material-symbols-outlined text-secondary text-sm group-hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</footer>
+<script>
+        // Micro-interactions and Atmospheric Effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('particle-container');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                
+                container.appendChild(particle);
+                animateParticle(particle);
+            }
+
+            function animateParticle(el) {
+                const duration = Math.random() * 10000 + 5000;
+                const targetX = Math.random() * window.innerWidth;
+                const targetY = Math.random() * window.innerHeight;
+
+                const animation = el.animate([
+                    { transform: 'translate(0, 0)', opacity: 0 },
+                    { opacity: 0.5, offset: 0.2 },
+                    { opacity: 0.5, offset: 0.8 },
+                    { transform: `translate(${targetX - parseFloat(el.style.left)}px, ${targetY - parseFloat(el.style.top)}px)`, opacity: 0 }
+                ], {
+                    duration: duration,
+                    easing: 'ease-in-out'
+                });
+
+                animation.onfinish = () => {
+                    el.style.left = `${Math.random() * window.innerWidth}px`;
+                    el.style.top = `${Math.random() * window.innerHeight}px`;
+                    animateParticle(el);
+                };
+            }
+
+            // Tilt effect on mouse move for cards
+            const cards = document.querySelectorAll('.glass-panel');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                });
+            });
+        });
+    </script>
+</body></html>
